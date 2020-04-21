@@ -1,0 +1,124 @@
+/* 
+ABOUT ME ANIMATION
+SVG - 2.5s .5
+Green - 1s 2.2s
+ME - 1s 2.7s
+&:before - 1s 3s 
+*/
+
+#about-me{
+    padding-top: 100px;
+    padding-bottom: 20px;
+    text-align: center;
+    .about-me-wrapper{
+        display: flex;
+        flex-wrap: wrap;
+        width: 100%;
+        padding-top: 100px;
+
+        .about-me-img {
+            display: block;
+            position: relative;
+            flex: 0 0 50%;
+            text-align: left;
+            &:before{
+                position: absolute;
+                top: -20px;
+                left: 0;
+                content: '';
+                background: url(../img/decorate.png);
+                width: 200px;
+                height: 210px;
+                z-index: -1;
+                opacity: 0;
+                
+            }
+            path{
+                stroke-dashoffset: 1680;
+                stroke-dasharray: 1680;
+                stroke: $textcolor;
+            }
+            img{
+                max-width: 653px;
+                top: -34px;
+                left: -82px;
+                position: absolute;
+                opacity: 0;
+                transform: rotate(-3deg);
+            }
+            .me{
+                max-width: 300px;
+                position: absolute;
+                z-index: 100;
+                opacity: 0;
+                left: 99px;
+                top: -78px;
+                transform: rotate(-2deg);
+            }
+            &.active{
+                &:before{
+                    animation: imgbefore 1s 3s forwards;
+                }
+                path{
+                    animation: svgDraw 2.5s .5s forwards;
+                }
+                img{
+                    animation: svgDrawnImg 1s 2.2s forwards;
+                }
+                .me{
+                    animation: svgDrawnImg2 1s 2.7s forwards;
+                }
+            }
+        }
+        .about-me-text{
+            flex: 0 0 50%;
+            display: flex;
+            align-items: center;
+            text-align: left;
+            p{
+                opacity: 0;
+                &.animate-text{
+                    padding-bottom: 100px;
+                    animation-delay: 3.5s;
+                }
+            }
+
+        }
+    }
+}
+
+@keyframes imgbefore{
+    from{opacity: 0;}
+    to{opacity: 1;}
+}
+
+@keyframes svgDraw {
+    from{	
+        stroke-dashoffset: 1680;
+        opacity: 1;
+    }
+    80%{
+        opacity: 1;
+    }
+    to{
+        stroke-dashoffset: 0;
+        opacity: 0;
+    }
+}
+@keyframes svgDrawnImg {
+    from{opacity: 0;}
+    to{
+        opacity: 1;
+    }
+}
+@keyframes svgDrawnImg2 {
+    from{
+        opacity: 0;
+        transform: translateY(10px) rotate(-4deg);;
+    }
+
+    to{
+        opacity: 1;
+        transform: translateY(0px) rotate(-4deg);
+    }
+}

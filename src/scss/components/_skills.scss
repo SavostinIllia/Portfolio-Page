@@ -1,0 +1,255 @@
+#skills{
+    padding-top: 100px;
+    padding-bottom: 100px;
+    .section-container{
+        text-align: center;
+        .skills-card-wrapper{
+            display: flex;
+            flex-wrap: wrap;
+            width: 100%;
+            justify-content: space-between;
+            align-items: flex-start;
+            align-content: flex-start;
+            padding-top: 50px;
+            .skill-card{
+                flex: 0 0 32%;
+                max-width: 400px;
+                position: relative;
+                @include transition;
+                opacity: 0;
+                
+                .skill-card-content{
+                    box-shadow: -5px -5px 10px rgba(255,255,255, .05),
+                    5px 5px 10px rgba(0,0,0,.5);
+                    border-radius: 15px;
+                    padding: 0 25px 15px;
+                    height: 100%;
+                    min-height: 435px;
+                    @include transition;
+                    position: relative;
+                    overflow: hidden;
+                    text-align: left;
+                    .skill-more{
+                        max-height: 1px;
+                        overflow: hidden;
+                        transition: 2s -.4s ease-in-out;
+                        position: relative;
+                        z-index: 200;
+                    }   
+                    .skill-img{
+                        text-align: center;
+                        padding: 20px 0;
+                        position: relative;
+                        z-index: 100;
+                        background: $maincolor;
+                        transform: translateY(100px);
+                        transition: .3s ease-in-out;
+                        position: relative;
+                        z-index: 50;
+                        svg{
+                            max-width: 170px;
+                            height: 100%;
+                            path{
+                                fill: $textcolor;
+                               @include transition
+                            }
+                        }
+                    }
+                    .skill-text{
+                        padding: 20px 0;
+                        transform: translateY(-70%);
+                        @include transition;
+                        h3{
+                            color: $secondarycolor;
+                            padding-bottom: 10px;
+                        }
+                        p{
+                            padding-bottom: 15px;
+                        }
+                    }
+                    &:before{
+                        content: '';
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        background: url(../img/decorate-sprite.png) center no-repeat;
+                        width: 120px;
+                        height: 120px;
+                        background-size: cover;
+                        background-position-y: 5px;
+                        z-index: 100;
+                        @include transition;
+                    }
+                    &:after{
+                        content: '';
+                        position: absolute;
+                        bottom: 0;
+                        right: 0;
+                        background: url(../img/decorate-sprite.png) center no-repeat;
+                        width: 120px;
+                        height: 120px;
+                        background-size: cover;
+                        background-position-y: -110px;
+                        z-index: 100;
+                        @include transition;
+                    }
+                    &:hover{
+                        transition: .3s ease-in-out;
+                        height: 100%;
+                        box-shadow: inset -5px -5px 10px rgba(255,255,255, .05),
+                        inset 5px 5px 10px rgba(0,0,0,.5);
+                        .skill-img{
+                            transform: translateY(8px);
+                            @include transition;
+                            svg{
+                                path{
+                                    @include transition;
+                                    fill: $darkenmaincolor;
+                                    &.cls-1, &.cls-3{
+                                        fill: $secondarycolor;
+                                    }
+                                }
+                            }
+                        }
+                        .skill-text{
+                            transform: translateY(0);
+                            @include transition;
+                        }
+                        &.shown{
+                            @include transition;   
+                            .skill-more{
+                                max-height: 1px;
+                                transition: .7s -.2s ease-in-out;
+                            }                    
+                            .skill-img{
+                                max-height: 1px;
+                                overflow: hidden;
+                                padding: 0;
+                                animation: showSkillImg .7s .55s forwards;
+                            }
+                            .skill-text{
+                                max-height: 1px;
+                                overflow: hidden;
+                                padding: 0;
+                                animation: showSkillImg .7s .55s forwards;
+                            }
+                        }
+                        &:before{
+                            background-position-y: -110px;
+                            @include transition;
+                        }
+                        &:after{
+                            background-position-y: 5px;
+                            @include transition;
+                        }
+                    }
+                    &.active{
+                        @include transition;
+                        .skill-more{
+                            max-height: 900px;
+                            transition: .7s .4s ease-in-out;
+                        }
+                        .skill-img{
+                            animation: hideSkillImg .5s forwards;
+                        }
+                        .skill-text{
+                            animation: hideSkillText .5s forwards;
+                        }
+                    }
+                    &.shown{
+                        @include transition;   
+                        .skill-more{
+                            max-height: 1px;
+                            transition: 1s -.4s ease-in-out;
+                        }             
+                        .skill-img{
+                            max-height: 1px;
+                            overflow: hidden;
+                            @include transition;
+                            animation: showSkillImg 1s .8s forwards;
+                            padding: 20px 0;
+                        }
+                        .skill-text{
+                            max-height: 1px;
+                            overflow: hidden;
+                            padding: 0;
+                            animation: showSkillImg 1s .8s forwards;
+                        }
+                    }
+
+                }
+                &.active{
+                    &:nth-child(1){
+                        animation: cardAppearence 1s 1s forwards;
+                    }
+                    &:nth-child(2){
+                        animation: cardAppearence 1s 1.2s forwards;
+                    }
+                    &:nth-child(3){
+                        animation: cardAppearence 1s 1.5s forwards;
+                    }
+                }
+            }
+        }
+    }
+}
+
+// CARD APPEREANCE
+
+@keyframes cardAppearence {
+    from{
+        transform: translateY(20px);
+        opacity: 0;
+    }
+    to{
+        transform: translateY(0px);
+        opacity: 1;
+    }
+}
+
+// HIDE ANIMATION
+@keyframes hideSkillImg{
+    from{
+        transform: translateY(8px);
+        opacity: 1;
+        height: 100%;
+    }
+    to{
+        transform: translateY(0px);
+        opacity: 0;
+        height: 0;
+        padding: 0;
+        margin: 0;
+    }
+}
+
+@keyframes hideSkillText{
+    from{
+        transform: translateY(0px);
+        opacity: 1;
+        height: 100%;
+    }
+
+    to{
+        transform: translateY(-5px);
+        opacity: 0;
+        height: 0;
+        padding: 0;
+        margin: 0;
+
+    }
+}
+// SHOW ANIMATION
+
+@keyframes showSkillImg{
+    from{ 
+        max-height: 1px;
+        overflow: hidden;
+        padding: 0;
+    }
+    to{
+        max-height: 220px;
+        padding: 20px 0;
+        overflow: unset;
+    }
+}

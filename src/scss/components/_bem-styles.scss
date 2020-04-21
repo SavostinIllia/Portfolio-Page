@@ -1,0 +1,409 @@
+.section-container{
+    margin: 0 auto;
+    max-width: 1240px;
+}
+
+.custom-title{
+    display: inline-block;
+    position: relative;
+    font-size: 55px;
+    font-weight: 400;
+    overflow: hidden;
+    animation: titleColor 1s 6.4s forwards; //6.4s
+    color: transparent;
+    &:before{
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        height: 100%;
+        width: 100%;
+        background: $textcolor;
+        animation: customTitle 1s 6s forwards; //6
+    }
+    &:after{
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        height: 100%;
+        width: 100%;
+        background: $secondarycolor;
+        animation: customTitle 1s 6.2s forwards; //6.2
+
+    }
+    svg{
+        transition: .3s ease-in-out;
+        fill: transparent;
+        path{
+            stroke: $textcolor;
+            stroke-dasharray: 300;
+            stroke-dashoffset: 300;
+            transition: .3s ease-in-out;
+            fill: transparent;
+            animation: customTitleSvg 2.5s 6.4s forwards; //6.4
+        }
+        &:hover{
+            cursor: pointer;
+            path{
+                transition: .3s ease-in-out;
+                fill: $secondarycolor;
+                stroke: transparent;
+            }
+        }
+    }
+}
+
+.animate-text{
+    font-size: 16px;
+    font-weight: 400;
+    color: $textcolor;
+    opacity: 0;
+    animation: articleTextAppearance 1s .5s forwards;
+    overflow: hidden;
+    &.active{
+        animation: articleTextAppearance 1s .5s forwards;
+    }
+}
+
+.custom-title-low{
+    display: inline-block;
+    position: relative;
+    font-size: 55px;
+    font-weight: 400;
+    overflow: hidden;
+    color: transparent;
+
+    &:before{
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        height: 100%;
+        width: 100%;
+        background: $textcolor;
+    }
+    &:after{
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        height: 100%;
+        width: 100%;
+        background: $secondarycolor;
+    }
+    svg{
+        transition: .3s ease-in-out;
+        fill: transparent;
+        path{
+            stroke: $textcolor;
+            stroke-dasharray: 300;
+            stroke-dashoffset: 300;
+            transition: .3s ease-in-out;
+            fill: transparent;
+            
+        }
+        &:hover{
+            path{
+                transition: .3s ease-in-out;
+                fill: $secondarycolor;
+                stroke: transparent;
+            }
+        }
+    }
+    &.active{
+        animation: titleColor 1s .5s forwards;
+        &:before{
+            animation: customTitle 1s .3s forwards;
+        }
+        &:after{
+            animation: customTitle 1s .45s forwards;
+        }
+        svg{
+            path{
+                animation: customTitleSvg 1.4s .9s forwards;//4.7
+            }
+        }
+    }
+}
+
+#page-number{
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    span{
+        text-align: right;
+        font-weight: 500;
+        font-size: 100px;
+        opacity: .5;
+        color: $secondarycolor;
+        position: relative;
+        display: block;
+        line-height: 1.1;
+
+    }
+
+}
+.page-number-scroll {
+    position: absolute;
+    top: 0;
+    right: 20px;
+    span{
+        text-align: right;
+        font-weight: 500;
+        font-size: 100px;
+        opacity: .5;
+        color: $secondarycolor;
+    }
+    &.first{
+        top: unset;
+        bottom: 0;
+    }
+}
+
+#socials{
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    width: 60px;
+    align-items: center;
+    bottom: 0;
+    left: 0;
+    &:before{
+        content: '';
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        height: 0;
+        width: 1.2px;
+        background: $textcolor;
+        animation: socialsBorderRight 1s 8.7s forwards;
+    }
+    &:after{
+        content: '';
+        position: absolute;
+        left: 0;
+        top: -30px;
+        height: .9px;
+        width: 0;
+        background: $textcolor;
+        animation: socialsBorderTop 1s 8.7s forwards;
+    }
+    .socials-wrapper{
+        li{
+            text-align: center;
+            width: 25px;
+            height: 40px;
+            opacity: 0;
+            a{
+                svg{
+                    width: 100%;
+                    height: 100%;
+                    max-height: 25px;
+                    max-width: 25px;
+                    fill: $textcolor;
+                    transition: .3s ease-in-out;
+                    &:hover{
+                        fill: $secondarycolor;
+                        transition: .3s ease-in-out;
+                    }
+                }
+            }
+            &:nth-child(1){
+                animation: socialsIcons 1s 9s forwards;
+                svg{
+                    width: 20px;
+                    height: 20px;
+                }
+            }
+            &:nth-child(2){
+                animation: socialsIcons 1s 9.1s forwards;
+            }
+            &:nth-child(3){
+                animation: socialsIcons 1s 9.2s forwards;
+            }
+            &:nth-child(4){
+                animation: socialsIcons 1s 9.3s forwards;
+                svg{
+                    max-width: unset;
+                    max-height: unset;
+                    width: 40px;
+                    margin: -6px 0px 0 -7px;
+                }
+            }
+            &:nth-child(5){
+                animation: socialsIcons 1s 9.4s forwards;
+                svg{
+                    polygon,polyline,line{
+                        transition: .3s ease-in-out;
+                    }
+                    &:hover{
+                        polygon,polyline,line{
+                            stroke: $secondarycolor;
+                            transition: .3s ease-in-out;
+                        }
+                    }
+                }
+            }
+        }
+        
+    }
+}
+
+.btn{
+    background: $secondarycolor;
+    color: $textcolor;
+    padding: 5px 30px;
+    position: relative;
+    z-index: 50;
+    &:before{
+        position: absolute;
+        content: '';
+        top: 0;
+        width: 100%;
+        background: transparent;
+        border: 1px solid $secondarycolor;
+        left: 0;
+        height: 100%;
+        @include transition;
+    }
+    &:after{
+        position: absolute;
+        content: '';
+        width: 100%;
+        background: $secondarycolor;
+        right: 0;
+        height: 100%;
+        z-index: -1;
+        opacity: .5;
+        bottom: 0;
+        @include transition;
+    }
+    &:hover{
+        &:before{
+            top: -7px;
+            left: -7px;
+            @include transition;
+        }
+        &:after{
+            bottom: -7px;
+            right: -7px;
+            @include transition;
+        }
+    }
+}
+
+.close-btn{
+    display: block;
+    margin-top: 25px;
+    text-align: center;
+    cursor: pointer;
+    @include transition;
+    svg{
+        transition: .2s .4s ease-in-out;
+        transform: rotate(0);
+        path{
+            stroke: $textcolor;
+            stroke-width: 2;
+            @include transition;
+        }
+    }
+    &:hover{
+        svg{
+            transition: .2s .4s ease-in-out;
+            transform: rotate(180deg);
+            path{
+                animation: closeBtn .4s forwards;
+                stroke: $secondarycolor;
+                @include transition;
+            }
+        }
+    }
+}
+
+    @keyframes closeBtn{
+        from{
+            stroke: $textcolor
+        }
+        20%{
+            stroke: $textcolor;
+        }
+        to{
+            stroke: $secondarycolor;
+        }
+    }
+
+// SOCIALS
+    @keyframes socialsBorderTop {
+        from{width: 0;}
+        to{width: calc(100% + 20px);}
+
+    }
+    @keyframes socialsBorderRight {
+        from{height: 0;}
+        to{height: calc(100% + 50px );}
+
+    }
+    @keyframes socialsIcons{
+        from{opacity: 0;transform: translateY(10px);}
+        to{opacity: 1;transform: translateY(0);}
+    }
+// SOCIALS
+
+    @keyframes articleTextAppearanceActive{
+        from{
+            opacity: 0;
+            transform: translateY(100px);
+        }
+        80%{
+            opacity: .7;
+            transform: translateY(-10px);
+        }
+        to{
+            opacity: 1;
+            transform: translateY(0px);
+        }
+    }
+    @keyframes articleTextAppearance{
+        from{
+            opacity: 0;
+            transform: translateY(100px);
+        }
+        80%{
+            opacity: .7;
+            transform: translateY(-10px);
+        }
+        to{
+            opacity: 1;
+            transform: translateY(0px);
+        }
+    }
+    @keyframes customTitle {
+        from{
+            left: -100%;
+        }
+        to{
+            
+            left: 100%;
+        }
+    }
+    @keyframes titleColor{
+        from{
+            color: transparent;
+
+        }
+        to{
+            color: $secondarycolor;
+            
+        }
+    }
+    @keyframes customTitleSvg {
+        from{
+            stroke-dasharray: 300; 
+            stroke-dashoffset: 300;
+        }
+        to{
+            stroke-dasharray: 300;
+            stroke-dashoffset: 0;
+        }
+    }
