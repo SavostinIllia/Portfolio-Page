@@ -7,14 +7,14 @@ ME - 1s 2.7s
 */
 
 #about-me{
-    padding-top: 100px;
     padding-bottom: 20px;
     text-align: center;
+    padding-bottom: 100px;
     .about-me-wrapper{
         display: flex;
         flex-wrap: wrap;
         width: 100%;
-        padding-top: 100px;
+        padding-top: 75px;
 
         .about-me-img {
             display: block;

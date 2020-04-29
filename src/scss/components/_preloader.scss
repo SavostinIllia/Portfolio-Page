@@ -93,7 +93,6 @@
   &.hide{
       animation: preloaderhide 2s ;
       top: -100vh;
-      
   }
 }
 
@@ -125,7 +124,6 @@
       top: 0px;
       padding-top: 100px;
     }
-
     100% {
       top: -100vh;
       transform: scale(0.8);

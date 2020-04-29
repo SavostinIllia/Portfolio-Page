@@ -3,7 +3,6 @@ function aboutMe() {
 let aboutMeSection = $('#about-me')
     $(document).ready(function(){
         
-
         $(window).scroll(function(){
 
             if(window.pageYOffset > 200){

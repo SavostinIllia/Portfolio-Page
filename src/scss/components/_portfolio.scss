@@ -1,0 +1,109 @@
+#portfolio{
+    padding-bottom: 100px;
+    .portfolio-works-wrapper{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        margin-left: -20px;
+        .work{
+            position: relative;
+            overflow: hidden;
+            height: 320px;
+            border-radius: 5px;
+            flex-basis: calc(33.333% - 20px);
+            margin-bottom: 20px;
+            margin-left: 20px;
+            .work-thumb{
+                width: 100%;
+                height: 80%;
+            }
+            .work-footer{
+                margin-top: -10px;
+                background: $darkenmaincolor;
+                text-align: center;
+                border-radius:  0 0 10px 10px;
+                p{
+                  padding: 20px 0;  
+                }
+            }
+            .work-hover{
+                background: $darkenmaincolor;
+                width: 100%;
+                height: 100%;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                @include transition;
+                padding: 25px 15px;
+                .work-header{
+                    display: flex;
+                    align-items: center;
+                    .folder{
+                        width: 35px;
+                        height: 35px;
+                        display: inline-block;
+                        svg{
+                            fill: $secondarycolor;
+                            path{
+                                stroke: $secondarycolor;
+                            }
+                        }
+                    }
+                    .work-header-links{
+                        display: inline-block;
+                        margin-left: auto;
+                        .work-hover-gitlab, .work-hover-live{
+                            width: 25px;
+                            display: inline-block;
+                            margin-left: 15px;
+                            svg{
+                                fill: $textcolor;
+                                @include transition;
+                            }
+                            &:hover{
+                                svg{
+                                fill: $secondarycolor;
+                                @include transition;
+                                }
+                            }
+                        }
+                    }
+                }
+                h4{
+                    padding-top: 10px;
+                    font-size: 20px;
+                    padding-bottom: 10px;
+                    color: $textcolor;
+                
+                }
+                p{
+                    opacity: .7;
+                }
+                .work-technologies{
+                    display: flex;
+                    flex-wrap: wrap;
+                    width: 100%;
+                    padding-top: 20px;
+                    position: absolute;
+                    bottom: 10px;
+                    span{
+                        flex: 0 0 auto;
+                        color: $secondarycolor;
+                        padding-right: 20px;
+                        opacity: .7;
+                        text-transform: uppercase;
+                        &:last-child{
+                            padding-right: 0;
+                        }
+                    }
+                }
+            }
+            &:hover{
+                .work-hover{
+                    top: 0;
+                    @include transition;
+                }
+            }
+        }
+    }
+}

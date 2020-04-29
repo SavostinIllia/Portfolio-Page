@@ -1,0 +1,22 @@
+#in-touch{
+    text-align: center;
+    padding-bottom: 100px;
+    .section-container{
+        opacity: 0;
+        p{
+            padding-bottom: 40px;
+        }
+        .btn{
+            font-size: 30px;
+        }
+        &.active{
+            animation: inTouch 1s forwards;
+        }
+    }
+
+}
+
+@keyframes inTouch {
+    from{opacity: 0; transform: translateY(10px);}
+    to{opacity: 1; transform: translateY(0);}
+}

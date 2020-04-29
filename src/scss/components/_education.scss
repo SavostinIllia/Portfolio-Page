@@ -3,7 +3,7 @@
     position: relative;
     overflow: hidden;
     background: $maincolor;
-    padding-bottom: 50px;
+    padding-bottom: 100px;
     transition: .3s ease-in-out;
     .title-skewed{
         padding-top: 100px;
@@ -12,12 +12,12 @@
     ul{
         transition: 1s ease-in-out;
         overflow: hidden;
-        height: 0;
+        height: 100%;
         display: flex;
         flex-wrap: wrap;
         position: relative;
         width: 80%;
-        margin: 50px auto 0;
+        margin: 0 auto;
         &:before{
             position: absolute;
             content: '';
@@ -37,7 +37,7 @@
             padding-right: 50px;
             position: relative;
             h3{
-                color: $secondarycolor;
+                color: $darkenmaincolor;
                 font-size: 24px;
                 padding-bottom: 10px;
                 opacity: 0;
@@ -50,15 +50,24 @@
             }
             &:before{
                 position: absolute;
-                content: '';
+                content: attr(date-id);
                 width: 0;
                 height: 0;
-                background: $secondarycolor;
+                background: $maincolor;
                 top: 0;
-                right: 0;
+                right: -8px;
                 border-radius: 50%;
                 top: 50%;
                 transform: translateY(-50%);
+                border: 1.2px solid $secondarycolor;
+                color: $secondarycolor;
+                text-align: center;
+                font-size: 25px;
+                overflow: hidden;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                opacity: 0;
             }
             &:after{
                 content: attr(data-date);
@@ -66,7 +75,7 @@
                 color: $secondarycolor;
                 font-size: 24px;
                 right: -100px;
-                top: 50%;
+                top: 32%;
                 transform: translateY(-50%);
                 opacity: 0;
             }
@@ -78,11 +87,11 @@
                 padding-left: 50px;
                 &:before{
                     position: absolute;
-                    content: '';
+                    content: attr(date-id);
                     width: 0;
                     height: 0;
                     top: 0;
-                    left: 0;
+                    left: -8px;
                     border-radius: 50%;
                     top: 50%;
                     transform: translateY(-50%);
@@ -123,8 +132,8 @@
 
 @keyframes rings{
     from{
-        width: 25px;
-        height: 25px;
+        width: 40px;
+        height: 40px;
         opacity: 0;
     }
     80%{
@@ -133,9 +142,9 @@
     }
     to{
         transform: translateY(-50%) scale(1);
-        width: 25px;
-        height: 25px;
-
+        width: 40px;
+        height: 40px;
+        opacity: 1;
     }
 }
 
