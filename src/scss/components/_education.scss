@@ -106,24 +106,24 @@
             }
             &.active{
                 &:before{
-                    animation: rings 1s .5s forwards;
+                    animation: rings 1s .3s forwards;
                 }
                 &:after{
-                    animation: lishow 1s 1s forwards;
+                    animation: lishow 1s .5s forwards;
                 }
                 &:nth-child(even){
                     &:before{
-                        animation: rings 1s .5s forwards;
+                        animation: rings 1s .3s forwards;
                     }
                     &:after{
-                        animation: lishow 1s 1s forwards;
+                        animation: lishow 1s .5s forwards;
                     }
                 }
                 h3{
-                    animation: lishow 1s 1s forwards;
+                    animation: lishow 1s .3s forwards;
                 }
                 p{
-                    animation: lishow 1s 1s forwards;
+                    animation: lishow 1s .3s forwards;
                 }
             }
         }

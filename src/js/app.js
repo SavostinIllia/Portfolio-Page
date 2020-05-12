@@ -5,10 +5,13 @@ import educationList from './modules/educationList';
 import pageNumber from './modules/pageNumber';
 import skills from './modules/skills';
 import aboutMe from './modules/aboutMe';
+import htmlScroll from './modules/htmlScroll';
+import portfolio from './modules/portfolio';
+import inTouch from './modules/inTouch';
+
 
 (function($){
-	
-	
+
 	$(document).ready(function(){
 		pagePreloader();
 		pageHeader();
@@ -17,7 +20,10 @@ import aboutMe from './modules/aboutMe';
 		pageNumber();
 		skills();
 		slickSliders();
+		portfolio();
+		inTouch();
 	});
-
+	htmlScroll()
 
 })(jQuery);
+

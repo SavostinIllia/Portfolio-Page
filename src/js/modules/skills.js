@@ -26,11 +26,10 @@ function skills() {
             if(window.pageYOffset > 2500){
                 skillSection.find($('.custom-title-low')).addClass('active')
             }
-            if(window.pageYOffset > 2650){
+            if(window.pageYOffset > 2550){
                 skillSection.find($('.skill-card')).addClass('active')
             }
         })
-
         
     })
 

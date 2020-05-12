@@ -2,26 +2,50 @@ body{
 	margin: 0;
 	padding: 0;
 	font-family: 'Baloo Paaji 2', sans-serif;
-	background: $maincolor;
-  }
-  *, *:before, *:after { box-sizing: border-box; }
-  
-  h1, h2, h3, h4, h5, h6 {
-     margin: 0;
-     color: $textcolor;
-  }
-  p{
-	  margin: 0;
-	  color: $textcolor;
-	  font-size: 16px;
+    background: $maincolor;
+    @include transition;
+    &::-webkit-scrollbar {
+        width: 10px;
+    }
+    
+    &::-webkit-scrollbar-track {
+        background: $maincolor;
+    }
+    
+    &::-webkit-scrollbar-thumb {
+        background: $maincolor;
+        border-radius: 5px;
+    }
+    &.scrolling{
+        &::-webkit-scrollbar-track {
+            background: $darkenmaincolor;
+        }
+        &::-webkit-scrollbar-thumb {
+            background: $secondarycolor;
+        }
+    }
+
   }
 
+
+  *, *:before, *:after { box-sizing: border-box; }
   
-  ul, li {
-	margin: 0;
-	padding: 0;
-	list-style-type: none;
-  }
+h1, h2, h3, h4, h5, h6 {
+    margin: 0;
+    color: $textcolor;
+}
+p{
+    margin: 0;
+    color: $textcolor;
+    font-size: 16px;
+}
+
+
+ul, li {
+margin: 0;
+padding: 0;
+list-style-type: none;
+}
 
 a {
 	text-decoration: none;
@@ -41,6 +65,7 @@ a {
 		clear: both;
 	}
 }
+
 
 @keyframes articleTextAppearance{
     from{
