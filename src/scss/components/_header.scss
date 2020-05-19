@@ -1,15 +1,28 @@
 header{
-    position: relative;
+    position: fixed;
     top: 0;
     width: 100%;
     background: transparent;
     right: 0;
-    // animation: pageHeader 1s 1.2s forwards; //4.2
     overflow: hidden;
     z-index: 299;
-    max-width: 1240px;
-    margin: 0 auto;
+    width: 100%;
+    padding-top: 15px;
+    @include transition;
+    &.active{
+        top: 0;
+        background: $maincolor;
+        box-shadow: 0px 15px 15px -15px $secondarycolor;  
+        padding-top: 0px;
+        @include transition;
+    }
+    &.hiden{
+        top: -200px;
+        @include transition;
+    }
     .header-wrapper{
+        max-width: 1240px;
+        margin:  0 auto;
         display: flex;
         flex-wrap: wrap;
         width: 100%;
@@ -34,9 +47,8 @@ header{
                 }
             }
         }
-
         .page-navigation{
-            flex: 0 0 45%;
+            flex: 0 0 57%;
             ul{
                 display: flex;
                 flex-wrap: wrap;
@@ -46,9 +58,66 @@ header{
                 li{
                     flex: 0 0 15%;
                     text-align: center;
+                    animation: headerLiShow 1s forwards;
+                    opacity: 0;
                     a{
                         color: $secondarycolor;
-                        font-size: 20px;
+                        font-size: 18px;
+                        position: relative;
+                        &:before{
+                            position: absolute;
+                            content:  attr(pagenumber) ;
+                            top: 0px;
+                            left: 0;
+                            z-index: -1;
+                            @include transition;
+                            color: $secondarycolor;
+                            
+                        }
+                        &:after{
+                            position: absolute;
+                            content:  attr(pagename) ;
+                            top: 0;
+                            right:  0;
+                            z-index: -1;
+                            @include transition;
+                            color: $secondarycolor;
+
+                        }
+                    }
+                    &:hover{
+                        a{
+                            opacity: 1;
+                            
+                            &:before{
+                                top: -13px;
+                                left: -13px;
+                                @include transition;
+                                opacity: .5;
+                            }
+                            &:after{
+                                top: 15px;
+                                right: -15px;
+                                color: $secondarycolor;
+                                opacity: .5;
+
+                            }
+                        }
+                    }
+                    &:nth-child(1){
+                        animation: headerLiShow 1s 8s forwards;
+                    }
+                    &:nth-child(2){
+                        animation: headerLiShow 1s 8.2s forwards;
+                    }
+                    &:nth-child(3){
+                        animation: headerLiShow 1s 8.4s forwards;
+                    }
+                    &:nth-child(4){
+                        animation: headerLiShow 1s 8.6s forwards;
+                    }
+                    &:nth-child(5){
+                        animation: headerLiShow 1s 8.8s forwards;
                     }
                 }
             }
@@ -63,5 +132,20 @@ header{
     }
     to{
         width: 100%;
+    }
+}
+
+@keyframes headerLiShow{
+    from{
+        opacity: 0;
+        transform: translateY(15px);
+    }
+    50%{
+        opacity: 1;
+        transform: translateY(-5px);
+    }
+    to{
+        opacity: 1;
+        transform: translateY(0px);
     }
 }

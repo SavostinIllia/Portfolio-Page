@@ -66,6 +66,10 @@ a {
 	}
 }
 
+.viewport {
+    min-height: 99vh;
+    overflow: hidden;
+}
 
 @keyframes articleTextAppearance{
     from{

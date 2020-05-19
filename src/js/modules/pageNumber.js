@@ -12,10 +12,10 @@ function pageNumber() {
                 $('#page-number span').text('0' + (parseInt(pageIdAttr + 1)))
                 
             }
-            if(window.pageYOffset > 850 && window.pageYOffset <= 2449){
+            if(window.pageYOffset > 1000 && window.pageYOffset <= 2449){
                 $('#page-number span').text('0' + (parseInt(pageIdAttr + 2)))
             }
-            if(window.pageYOffset > 2450){
+            if(window.pageYOffset > 2600){
                 $('#page-number span').text('0' + (parseInt(pageIdAttr + 3)))
             }
         })

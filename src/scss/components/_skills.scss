@@ -16,7 +16,7 @@
                 opacity: 0;
                 
                 .skill-card-content{
-                    box-shadow: -5px -5px 10px rgba(255,255,255, .05),
+                    box-shadow: -5px -5px 10px rgba($secondarycolor, .2),
                     5px 5px 10px rgba(0,0,0,.5);
                     border-radius: 15px;
                     padding: 0 25px 15px;
@@ -94,7 +94,7 @@
                     &:hover{
                         transition: .3s ease-in-out;
                         height: 100%;
-                        box-shadow: inset -5px -5px 10px rgba(255,255,255, .05),
+                        box-shadow: inset -5px -5px 10px rgba($secondarycolor, .2),
                         inset 5px 5px 10px rgba(0,0,0,.5);
                         .skill-img{
                             transform: translateY(8px);

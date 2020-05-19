@@ -1,6 +1,5 @@
 /* 
 Animation after Preloader 
-
     TITLE - _bem-styles.scss {
     h1 - 6.4s [before - 6s; after - 6.2s]
     }
@@ -10,21 +9,15 @@ Animation after Preloader
     p - 6.9s
     :before - 8s
     }
-
 */
-
 
 #hero{
     background: $maincolor;
     width: 100%;
     max-width: 100%;
-    padding: 0px 15px;
-    margin-top: -58px;
+    padding: 150px 0 200px;
     position: relative;
     height: 100vh;
-    @include medium{
-        padding: 0px 100px;
-    }
     .hero-screen{
         display: flex;
         flex-wrap: wrap;
@@ -100,7 +93,7 @@ Animation after Preloader
                 content: '';
                 min-height: 1px;
                 width: 70%;
-                right: 30px;
+                right: 150px;
                 top: -300px;
                 background: $maincolor;
                 animation: before 1s 8s forwards;
