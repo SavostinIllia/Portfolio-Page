@@ -15,8 +15,14 @@ function pageNumber() {
             if(window.pageYOffset > 1000 && window.pageYOffset <= 2449){
                 $('#page-number span').text('0' + (parseInt(pageIdAttr + 2)))
             }
-            if(window.pageYOffset > 2600){
+            if(window.pageYOffset > 2450 && window.pageYOffset <= 3149){
                 $('#page-number span').text('0' + (parseInt(pageIdAttr + 3)))
+            }
+            if(window.pageYOffset > 3150 && window.pageYOffset <= 3899){
+                $('#page-number span').text('0' + (parseInt(pageIdAttr + 4)))
+            }
+            if(window.pageYOffset > 4000){
+                $('#page-number span').text('0' + (parseInt(pageIdAttr + 5)))
             }
         })
     })
