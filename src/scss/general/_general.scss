@@ -67,8 +67,9 @@ a {
 }
 
 .viewport {
-    min-height: 99vh;
+    min-height: 100vh;
     overflow: hidden;
+    position: relative;
 }
 
 @keyframes articleTextAppearance{

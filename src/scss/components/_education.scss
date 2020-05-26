@@ -1,4 +1,4 @@
-#education{
+#experience{
     width: 100%;
     position: relative;
     overflow: hidden;
@@ -41,6 +41,15 @@
                 font-size: 24px;
                 padding-bottom: 10px;
                 opacity: 0;
+                a{
+                    color: $darkenmaincolor;
+                }
+                &:hover{
+                    a{
+                    color: $secondarycolor;
+                    text-decoration: underline;
+                    }
+                }
             }
             p{
                 color: $textcolor;
@@ -74,10 +83,11 @@
                 position: absolute;
                 color: $secondarycolor;
                 font-size: 24px;
-                right: -100px;
+                right: -200px;
                 top: 32%;
                 transform: translateY(-50%);
                 opacity: 0;
+                padding-left: 50px;
             }
             &:nth-child(even){
                 text-align: left;
@@ -100,7 +110,7 @@
                     content: attr(data-date);
                     position: absolute;
                     font-size: 24px;
-                    left: -100px;
+                    left: -250px;
                     opacity: 0;
                 }
             }

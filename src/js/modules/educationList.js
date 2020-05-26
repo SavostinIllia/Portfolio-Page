@@ -2,7 +2,7 @@ function educationList() {
 
     $(window).scroll(function(){
         if(this.window.pageYOffset > 1050  ){
-            $('#education .custom-title-low').addClass('active')
+            $('#experience .custom-title-low').addClass('active')
             console.log(window.pageYOffset)
         }   
             if(window.pageYOffset > 1099) {
