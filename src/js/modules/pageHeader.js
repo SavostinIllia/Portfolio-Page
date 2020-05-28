@@ -19,6 +19,25 @@ function pageHeader() {
                 scrollTop: ($(linkAttr).offset().top) - 50 + 'px'
             }, 1000);
         })
+        $(this).mouseenter(function(e){
+            const translateX= $(this).attr("pagetranslate")
+            const linkWidht = $(this).attr("linkwidht")
+            $('.li-hover').css({
+                left: translateX + 'px',
+                height: '1.8px',
+                width: linkWidht + 'px'
+            })
+            $('.li-hover-after').css({
+                left: translateX + 'px',
+                height: '1.8px',
+                width: linkWidht + 'px'
+            })
+        })
+    })
+
+    headerLinksWrapper.mouseleave(function(e){
+        $('.li-hover').css('height', '0')
+        $('.li-hover-after').css('height', '0')
     })
 
     $(document).ready(function(){

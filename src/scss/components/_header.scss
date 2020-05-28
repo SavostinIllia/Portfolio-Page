@@ -51,12 +51,14 @@ header{
         }
         .page-navigation{
             flex: 0 0 57%;
+            position: relative;
             ul{
                 display: flex;
                 flex-wrap: wrap;
                 width: 100%;
                 justify-content: space-between;
                 justify-content: space-between;
+                position: relative;
                 li{
                     flex: 0 0 16%;
                     text-align: center;
@@ -66,31 +68,30 @@ header{
                         color: $secondarycolor;
                         font-size: 18px;
                         position: relative;
-                        &:before{
-                            position: absolute;
-                            content:  attr(pagenumber) ;
-                            top: 0px;
-                            left: 0;
-                            z-index: -1;
-                            @include transition;
-                            color: $secondarycolor;
+                        // &:before{
+                        //     position: absolute;
+                        //     content:  attr(pagenumber) ;
+                        //     top: 0px;
+                        //     left: 0;
+                        //     z-index: -1;
+                        //     @include transition;
+                        //     color: $secondarycolor;
                             
-                        }
-                        &:after{
-                            position: absolute;
-                            content:  attr(pagename) ;
-                            top: 0;
-                            right:  0;
-                            z-index: -1;
-                            @include transition;
-                            color: $secondarycolor;
+                        // }
+                        // &:after{
+                        //     position: absolute;
+                        //     content:  attr(pagename) ;
+                        //     top: 0;
+                        //     right:  0;
+                        //     z-index: -1;
+                        //     @include transition;
+                        //     color: $secondarycolor;
 
-                        }
+                        // }
                     }
                     &:hover{
                         a{
                             opacity: 1;
-                            
                             &:before{
                                 top: -13px;
                                 left: -13px;
@@ -122,6 +123,22 @@ header{
                         animation: headerLiShow 1s 8.8s forwards;
                     }
                 }
+            }
+            .li-hover{
+                position: absolute;
+                background: $secondarycolor;
+                height: 0px;
+                bottom: -3px;
+                left: 0;
+                @include transition;
+            }
+            .li-hover-after{
+                position: absolute;
+                background: $secondarycolor;
+                height: 0px;
+                bottom: -3px;
+                left: 0;
+                transition: .5s ease-in-out;
             }
         }
 

@@ -55,12 +55,13 @@
 }
 
 .animate-text{
-    font-size: 16px;
+    font-size: 18px;
     font-weight: 400;
     color: $textcolor;
     opacity: 0;
     animation: articleTextAppearance 1s .5s forwards;
     overflow: hidden;
+    margin-top: 15px;
     &.active{
         animation: articleTextAppearance 1s .5s forwards;
     }

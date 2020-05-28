@@ -1,0 +1,188 @@
+#experience{
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+    background: $maincolor;
+    padding-bottom: 100px;
+    transition: .3s ease-in-out;
+    .title-skewed{
+        padding-top: 100px;
+        text-align: center;
+    }
+    ul{
+        transition: 1s ease-in-out;
+        overflow: hidden;
+        height: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        position: relative;
+        width: 100%;
+        margin: 0 auto;
+        &:before{
+            position: absolute;
+            content: '';
+            display: block;
+            width: 5px;
+            height: 100%;
+            background: $secondarycolor;
+            left: 50%;
+            transform: translateX(-50%);
+            top: 0;
+        }
+        li{ 
+            margin-bottom: 50px;
+            width: 100%;
+            position: relative;
+
+            .education-li{
+                width: 50%;
+                margin-right: auto;
+                text-align: right;
+                padding-right: 50px;
+                opacity: 0;
+                h3{
+                    color: $darkenmaincolor;
+                    font-size: 24px;
+                    padding-bottom: 10px;
+                    opacity: 1;
+                    a{
+                        color: $darkenmaincolor;
+                    }
+                    &:hover{
+                        a{
+                        color: $secondarycolor;
+                        text-decoration: underline;
+                        }
+                    }
+                }
+                p{
+                    color: $textcolor;
+                    font-size: 16px;
+                    opacity: 1;
+                    strong{
+                        color: $secondarycolor;
+                    }
+                }
+            }
+            &:before{
+                position: absolute;
+                content: attr(date-id);
+                width: 0px;
+                height: 0px;
+                background: $maincolor;
+                left: 50%;
+                border-radius: 50%;
+                top: 50%;
+                transform: translate(-50%, -50%);
+                border: 1.2px solid $secondarycolor;
+                color: $secondarycolor;
+                text-align: center;
+                font-size: 25px;
+                overflow: hidden;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                opacity: 0;
+            }
+            &:after{
+                content: attr(data-date);
+                position: absolute;
+                color: $secondarycolor;
+                font-size: 24px;
+                top: 50%;
+                left: 50%;
+                transform: translate(calc(0% + 50px)  , -50%);
+                opacity: 0;
+                width: 220px;
+            }
+            &:nth-child(even){
+                .education-li{
+                    width: 50%;
+                    margin-left: auto;
+                    margin-right: unset;
+                    text-align: left;
+                    padding-left: 50px;
+                    padding-right: 0;
+                }
+                &:before{
+                    position: absolute;
+                    content: attr(date-id);
+                    width: 0;
+                    height: 0;
+                    left: 50%;
+                    border-radius: 50%;
+                    top: 50%;
+                    transform: translate(-50%, -50%);
+                }
+                &:after{
+                    content: attr(data-date);
+                    position: absolute;
+                    font-size: 24px;
+                    left: 50%;
+                    opacity: 0;
+                    text-align: right;
+                    transform: translate(calc(-50% - 160px), -50%);
+                }
+            }
+            &.active{
+                .education-li{
+                    animation: educationshow 1s .5s forwards;
+                }
+                &:before{
+                    animation: rings 1s .3s forwards;
+                }
+                &:after{
+                    animation: aftershow 1s .4s forwards;
+                }
+                &:nth-child(even){
+                    &:before{
+                        animation: rings 1s .3s forwards;
+                    }
+                    &:after{
+                        animation: aftershow 1s .4s forwards;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@keyframes rings{
+    from{
+        width: 40px;
+        height: 40px;
+        opacity: 0;
+    }
+    80%{
+        transform:  translate(-50%, -50%) scale(1.2);
+        opacity: 1;
+    }
+    to{
+        transform: translate(-50%, -50%) scale(1);
+        width: 40px;
+        height: 40px;
+        opacity: 1;
+    }
+}
+
+@keyframes aftershow{
+    from{
+        opacity: 0;
+        padding-top: 15px;
+    }
+    to{
+        opacity: 1;
+        padding-top: 0px;
+    }
+}
+
+@keyframes educationshow {
+    from{
+        opacity: 0;
+        transform: translateY(15px);
+    }
+    to{
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

@@ -26,6 +26,7 @@
                     position: relative;
                     overflow: hidden;
                     text-align: left;
+                
                     .skill-more{
                         max-height: 1px;
                         overflow: hidden;
@@ -146,6 +147,12 @@
                         }
                     }
                     &.active{
+                        &:after{
+                            background: none;
+                        }
+                        &:before{
+                            background: none;
+                        }
                         @include transition;
                         .skill-more{
                             max-height: 900px;
@@ -178,7 +185,6 @@
                             animation: showSkillImg 1s .8s forwards;
                         }
                     }
-
                 }
                 &.active{
                     &:nth-child(1){
@@ -189,6 +195,74 @@
                     }
                     &:nth-child(3){
                         animation: cardAppearence 1s 1.5s forwards;
+                    }
+                }
+                &.hard-skill-card{
+                    .hard-skill-list{
+                        display: flex;
+                        flex-direction: column;
+                        flex-wrap: wrap;
+                        max-height: 500px;
+                        .hard-skill{
+                            padding-top: 15px;
+                            flex: 0 1 100%;
+                            span{
+                                color: $textcolor;
+                                font-size: 18px;
+                                display: block;
+                                margin-bottom: 10px;
+                            }
+                            li{
+                                flex: 0 0 auto;
+                                padding-left: 20px;
+                                position: relative;
+                                color: $textcolor;
+                                flex: 0 0 100%;
+                                &:before{
+                                    content: "\22D7";
+                                    color: $secondarycolor;
+                                    left: 0;
+                                    position: absolute;
+                                    vertical-align: middle;
+                                    font-size: 15px;
+                                    top: 50%;
+                                    transform: translateY(-50%);
+                                }
+                            }
+                            &.technologies{
+                                margin-right: 20px;
+                            }
+                            &.utilites{
+                                flex: 0 1 50%;
+                                li{
+                                    &:before{
+                                        color: #3498db;
+                                    }
+                                }
+                            }
+                            &.programs{
+                                flex: 0 1 50%;
+                                li{
+                                    &:before{
+                                        color: #e67e22;
+                                    }
+                                }
+                            }
+
+                        }
+
+                    }
+                }
+                &.soft-skill-card{
+                    strong{
+                        font-weight: 400;
+                        color: $secondarycolor;
+                    }
+                }
+                &.hobbies-card{
+                    strong{
+                        font-weight: 400;
+                        color: $secondarycolor;
                     }
                 }
             }
