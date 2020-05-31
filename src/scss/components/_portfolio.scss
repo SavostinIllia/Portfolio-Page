@@ -34,7 +34,7 @@
                 position: absolute;
                 top: 100%;
                 left: 0;
-                @include transition;
+                @include animationTransition;
                 padding: 25px 15px;
                 .work-header{
                     display: flex;
@@ -59,12 +59,12 @@
                             margin-left: 15px;
                             svg{
                                 fill: $textcolor;
-                                @include transition;
+                                @include animationTransition;
                             }
                             &:hover{
                                 svg{
                                 fill: $secondarycolor;
-                                @include transition;
+                                @include animationTransition;
                                 }
                             }
                         }
@@ -102,7 +102,7 @@
             &:hover{
                 .work-hover{
                     top: 0;
-                    @include transition;
+                    @include animationTransition;
                 }
             }
             &:nth-child(1){

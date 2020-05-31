@@ -15,9 +15,12 @@ Animation after Preloader
     background: $maincolor;
     width: 100%;
     max-width: 100%;
-    padding: 150px 0 200px;
+    padding: 70px 20px 30px;
     position: relative;
     height: 100vh;
+    @include large {
+        padding: 150px 20px 200px;
+    }
     .hero-screen{
         display: flex;
         flex-wrap: wrap;

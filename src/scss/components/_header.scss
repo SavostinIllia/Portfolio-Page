@@ -8,17 +8,23 @@ header{
     z-index: 299;
     width: 100%;
     padding-top: 15px;
-    @include transition;
+    @include animationTransition;
+    @include small {
+        display: none;
+    }
+    @include medium {
+        display: block;
+    }
     &.active{
         top: 0;
         background: $maincolor;
         box-shadow: 0px 15px 15px -15px $secondarycolor;  
         padding-top: 0px;
-        @include transition;
+        @include animationTransition;
     }
     &.hiden{
         top: -200px;
-        @include transition;
+        @include animationTransition;
     }
     .header-wrapper{
         max-width: 1240px;
@@ -38,12 +44,12 @@ header{
                 height: 37px;
                 path{
                     cursor: pointer;
-                    transition: .3s ease-in-out;
+                    @include animationTransition;
                     fill: transparent;
                     stroke: $textcolor;
                     &:hover{
                         fill: $textcolor;
-                        transition: .3s ease-in-out;
+                        @include animationTransition;
                     }
                 }
             }
@@ -68,26 +74,6 @@ header{
                         color: $secondarycolor;
                         font-size: 18px;
                         position: relative;
-                        // &:before{
-                        //     position: absolute;
-                        //     content:  attr(pagenumber) ;
-                        //     top: 0px;
-                        //     left: 0;
-                        //     z-index: -1;
-                        //     @include transition;
-                        //     color: $secondarycolor;
-                            
-                        // }
-                        // &:after{
-                        //     position: absolute;
-                        //     content:  attr(pagename) ;
-                        //     top: 0;
-                        //     right:  0;
-                        //     z-index: -1;
-                        //     @include transition;
-                        //     color: $secondarycolor;
-
-                        // }
                     }
                     &:hover{
                         a{
@@ -95,7 +81,7 @@ header{
                             &:before{
                                 top: -13px;
                                 left: -13px;
-                                @include transition;
+                                @include animationTransition;
                                 opacity: .5;
                             }
                             &:after{
@@ -130,7 +116,7 @@ header{
                 height: 0px;
                 bottom: -3px;
                 left: 0;
-                @include transition;
+                @include animationTransition(.3s)
             }
             .li-hover-after{
                 position: absolute;
@@ -138,7 +124,7 @@ header{
                 height: 0px;
                 bottom: -3px;
                 left: 0;
-                transition: .5s ease-in-out;
+                @include animationTransition(.4s)
             }
         }
 

@@ -12,7 +12,7 @@
                 flex: 0 0 32%;
                 max-width: 400px;
                 position: relative;
-                @include transition;
+                @include animationTransition;
                 opacity: 0;
                 
                 .skill-card-content{
@@ -22,7 +22,7 @@
                     padding: 0 25px 15px;
                     height: 100%;
                     min-height: 435px;
-                    @include transition;
+                    @include animationTransition;
                     position: relative;
                     overflow: hidden;
                     text-align: left;
@@ -30,7 +30,7 @@
                     .skill-more{
                         max-height: 1px;
                         overflow: hidden;
-                        transition: 2s -.4s ease-in-out;
+                        @include animationTransition(2s, -.4s);
                         position: relative;
                         z-index: 200;
                     }   
@@ -41,7 +41,7 @@
                         z-index: 100;
                         background: $maincolor;
                         transform: translateY(100px);
-                        transition: .3s ease-in-out;
+                        @include animationTransition;
                         position: relative;
                         z-index: 50;
                         svg{
@@ -49,7 +49,7 @@
                             height: 100%;
                             path, circle{
                                 fill: $textcolor;
-                               @include transition
+                                @include animationTransition;
                             }
                             
                         }
@@ -57,7 +57,7 @@
                     .skill-text{
                         padding: 20px 0;
                         transform: translateY(-50%);
-                        @include transition;
+                        @include animationTransition;
                         h3{
                             color: $secondarycolor;
                             padding-bottom: 10px;
@@ -77,7 +77,7 @@
                         background-size: cover;
                         background-position-y: 5px;
                         z-index: 100;
-                        @include transition;
+                        @include animationTransition;
                     }
                     &:after{
                         content: '';
@@ -90,19 +90,19 @@
                         background-size: cover;
                         background-position-y: -110px;
                         z-index: 100;
-                        @include transition;
+                        @include animationTransition;
                     }
                     &:hover{
-                        transition: .3s ease-in-out;
+                        @include animationTransition;
                         height: 100%;
                         box-shadow: inset -5px -5px 10px rgba($secondarycolor, .2),
                         inset 5px 5px 10px rgba(0,0,0,.5);
                         .skill-img{
                             transform: translateY(8px);
-                            @include transition;
+                            @include animationTransition;
                             svg{
                                 path{
-                                    @include transition;
+                                    @include animationTransition;
                                     fill: $darkenmaincolor;
                                     &.cls-1, &.cls-3{
                                         fill: $secondarycolor;
@@ -116,13 +116,13 @@
                         }
                         .skill-text{
                             transform: translateY(0);
-                            @include transition;
+                            @include animationTransition;
                         }
                         &.shown{
-                            @include transition;   
+                            @include animationTransition;  
                             .skill-more{
                                 max-height: 1px;
-                                transition: .7s -.2s ease-in-out;
+                                @include animationTransition(.7s, -.2s);
                             }                    
                             .skill-img{
                                 max-height: 1px;
@@ -139,11 +139,11 @@
                         }
                         &:before{
                             background-position-y: -110px;
-                            @include transition;
+                            @include animationTransition;
                         }
                         &:after{
                             background-position-y: 5px;
-                            @include transition;
+                            @include animationTransition;
                         }
                     }
                     &.active{
@@ -153,10 +153,10 @@
                         &:before{
                             background: none;
                         }
-                        @include transition;
+                        @include animationTransition;
                         .skill-more{
                             max-height: 900px;
-                            transition: .7s .4s ease-in-out;
+                            @include animationTransition(.7s, .4s);
                         }
                         .skill-img{
                             animation: hideSkillImg .5s forwards;
@@ -166,15 +166,15 @@
                         }
                     }
                     &.shown{
-                        @include transition;   
+                        @include animationTransition;  
                         .skill-more{
                             max-height: 1px;
-                            transition: 1s -.4s ease-in-out;
+                            @include animationTransition(1s, -.4s);
                         }             
                         .skill-img{
                             max-height: 1px;
                             overflow: hidden;
-                            @include transition;
+                            @include animationTransition;
                             animation: showSkillImg 1s .8s forwards;
                             padding: 20px 0;
                         }

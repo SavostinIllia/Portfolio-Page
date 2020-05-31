@@ -33,20 +33,20 @@
 
     }
     svg{
-        transition: .3s ease-in-out;
+        @include animationTransition;
         fill: transparent;
         path{
             stroke: $textcolor;
             stroke-dasharray: 300;
             stroke-dashoffset: 300;
-            transition: .3s ease-in-out;
+            @include animationTransition;
             fill: transparent;
             animation: customTitleSvg 2.5s 6.4s forwards; //6.4
         }
         &:hover{
             cursor: pointer;
             path{
-                transition: .3s ease-in-out;
+                @include animationTransition;
                 fill: $secondarycolor;
                 stroke: transparent;
             }
@@ -97,19 +97,19 @@
             background: $secondarycolor;
         }
         svg{
-            transition: .3s ease-in-out;
+            @include animationTransition;
             fill: transparent;
             path{
                 stroke: $textcolor;
                 stroke-dasharray: 300;
                 stroke-dashoffset: 300;
-                transition: .3s ease-in-out;
+                @include animationTransition;
                 fill: transparent;
                 
             }
             &:hover{
                 path{
-                    transition: .3s ease-in-out;
+                    @include animationTransition;
                     fill: $secondarycolor;
                     stroke: transparent;
                 }
@@ -207,10 +207,10 @@
                     max-height: 25px;
                     max-width: 25px;
                     fill: $textcolor;
-                    transition: .3s ease-in-out;
+                    @include animationTransition;
                     &:hover{
                         fill: $secondarycolor;
-                        transition: .3s ease-in-out;
+                        @include animationTransition;
                     }
                 }
             }
@@ -240,12 +240,12 @@
                 animation: socialsIcons 1s 9.4s forwards;
                 svg{
                     polygon,polyline,line{
-                        transition: .3s ease-in-out;
+                        @include animationTransition;
                     }
                     &:hover{
                         polygon,polyline,line{
                             stroke: $secondarycolor;
-                            transition: .3s ease-in-out;
+                            @include animationTransition;
                         }
                     }
                 }
@@ -271,7 +271,7 @@
         border: 1px solid $secondarycolor;
         left: 0;
         height: 100%;
-        @include transition;
+        @include animationTransition;
         z-index: -1;
     }
     &:after{
@@ -284,18 +284,18 @@
         z-index: -1;
         opacity: .5;
         bottom: 0;
-        @include transition;
+        @include animationTransition;
     }
     &:hover{
         &:before{
             top: -8px;
             left: -8px;
-            @include transition;
+            @include animationTransition;
         }
         &:after{
             bottom: -8px;
             right: -8px;
-            @include transition;
+            @include animationTransition;
         }
     }
 }
@@ -305,24 +305,24 @@
     margin-top: 25px;
     text-align: center;
     cursor: pointer;
-    @include transition;
+    @include animationTransition;
     svg{
-        transition: .2s .4s ease-in-out;
+        @include animationTransition(.2s, .4s);
         transform: rotate(0);
         path{
             stroke: $textcolor;
             stroke-width: 2;
-            @include transition;
+            @include animationTransition;
         }
     }
     &:hover{
         svg{
-            transition: .2s .4s ease-in-out;
+            @include animationTransition(.2s, .4s);
             transform: rotate(180deg);
             path{
                 animation: closeBtn .4s forwards;
                 stroke: $secondarycolor;
-                @include transition;
+                @include animationTransition;
             }
         }
     }
