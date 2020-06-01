@@ -162,7 +162,7 @@
                         }
                         @include animationTransition;
                         .skill-more{
-                            max-height: 900px;
+                            max-height: 480px;
                             @include animationTransition(.7s, .4s);
                         }
                         .skill-img{
