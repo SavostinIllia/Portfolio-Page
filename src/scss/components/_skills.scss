@@ -1,5 +1,8 @@
 #skills{
-    padding-bottom: 100px;
+    padding: 0 20px 50px;
+    @include medium {
+        padding-bottom: 100px;
+    }
     .section-container{
         .skills-card-wrapper{
             display: flex;
@@ -9,12 +12,16 @@
             align-items: flex-start;
             align-content: flex-start;
             .skill-card{
-                flex: 0 0 32%;
+                flex: 0 0 100%;
                 max-width: 400px;
                 position: relative;
                 @include animationTransition;
                 opacity: 0;
-                
+                margin: 0 auto 30px ;
+                @include medium {
+                    margin: unset;
+                    flex: 0 0 32%;
+                }
                 .skill-card-content{
                     box-shadow: -5px -5px 10px rgba($secondarycolor, .2),
                     5px 5px 10px rgba(0,0,0,.5);
@@ -208,9 +215,12 @@
                             flex: 0 1 100%;
                             span{
                                 color: $textcolor;
-                                font-size: 18px;
                                 display: block;
                                 margin-bottom: 10px;
+                                font-size: 14px;
+                                @include medium { 
+                                    font-size: 18px;
+                                }
                             }
                             li{
                                 flex: 0 0 auto;
@@ -218,6 +228,10 @@
                                 position: relative;
                                 color: $textcolor;
                                 flex: 0 0 100%;
+                                font-size: 12px;
+                                @include medium {
+                                    font-size: 18px;
+                                }
                                 &:before{
                                     content: "\22D7";
                                     color: $secondarycolor;

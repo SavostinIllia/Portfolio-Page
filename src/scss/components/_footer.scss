@@ -1,24 +1,33 @@
 footer{
-   padding-top: 50px;
+   padding: 0px 20px 20px;
    position: relative;
-    padding-bottom: 20px;
+
+
     .footer-wrapper{
         display: flex;
         flex-wrap: wrap;
         width: 100%;
         .docs-col{
-            flex: 0 0 25%;
+            flex: 0 0 100%;
+            order: 2;
+            @include medium {
+                flex: 0 0 25%;
+            }
             .btn{
                 margin-bottom: 15px;
                 display: inline-block;
             }
         }
         .version{
-            flex: 0 0 50%;
+            flex: 0 0 100%;
             display: flex;
             flex-wrap: wrap;
             align-items: center;
             justify-content: center;
+            order: 3;
+            @include medium { 
+                flex: 0 0 50%;
+            }
             p{
                 flex: 0 0 100%;
                 text-align: center;
@@ -34,10 +43,14 @@ footer{
             }
         }
         .contacts{
-            flex: 0 0 25%;
+            flex: 0 0 100%;
+            order: 1;
             display: flex;
             flex-wrap: wrap;
-            
+            margin-bottom: 20px;
+            @include medium {
+                flex: 0 0 25%;
+            }
             .footer-phone{
                 flex: 0 0 100%;
                 display: flex;

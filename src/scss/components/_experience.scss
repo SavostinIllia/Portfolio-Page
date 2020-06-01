@@ -3,8 +3,11 @@
     position: relative;
     overflow: hidden;
     background: $maincolor;
-    padding-bottom: 100px;
+    padding: 0 20px 50px;
     @include animationTransition;
+    @include medium {
+        padding-bottom: 100px;
+    }
     .title-skewed{
         padding-top: 100px;
         text-align: center;
@@ -25,9 +28,12 @@
             width: 5px;
             height: 100%;
             background: $secondarycolor;
-            left: 50%;
-            transform: translateX(-50%);
+            left: 20px;
             top: 0;
+            @include medium{
+                left: 50%;
+                transform: translateX(-50%);
+            }
         }
         li{ 
             margin-bottom: 50px;
@@ -35,16 +41,23 @@
             position: relative;
 
             .education-li{
-                width: 50%;
-                margin-right: auto;
-                text-align: right;
-                padding-right: 50px;
                 opacity: 0;
+                width: 100%;
+                padding-left: 50px;
+                @include medium{
+                    width: 50%;
+                    margin-right: auto;
+                    text-align: right;
+                    padding-right: 50px;
+                }
                 h3{
                     color: $darkenmaincolor;
-                    font-size: 24px;
-                    padding-bottom: 10px;
+                    font-size: 18px;
                     opacity: 1;
+                    @include medium {
+                        font-size: 24px;
+                        padding-bottom: 10px;
+                    }
                     a{
                         color: $darkenmaincolor;
                     }
@@ -55,10 +68,21 @@
                         }
                     }
                 }
+                span{
+                    color: $secondarycolor;
+                    display: block;
+                    font-size: 18px;
+                    @include medium {
+                        display: none;
+                    }
+                }
                 p{
                     color: $textcolor;
-                    font-size: 16px;
+                    font-size: 15px;
                     opacity: 1;
+                    @include medium { 
+                        font-size: 16px;
+                    }
                     strong{
                         color: $secondarycolor;
                     }
@@ -70,58 +94,82 @@
                 width: 0px;
                 height: 0px;
                 background: $maincolor;
-                left: 50%;
+                left: 22px;
                 border-radius: 50%;
-                top: 50%;
-                transform: translate(-50%, -50%);
+                top: 15px;
                 border: 1.2px solid $secondarycolor;
                 color: $secondarycolor;
                 text-align: center;
-                font-size: 25px;
+                font-size: 20px;
                 overflow: hidden;
                 display: flex;
                 align-items: center;
                 justify-content: center;
                 opacity: 0;
+                @include medium{
+                    font-size: 25px;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50%, -50%);
+                }
             }
             &:after{
                 content: attr(data-date);
                 position: absolute;
                 color: $secondarycolor;
                 font-size: 24px;
-                top: 50%;
-                left: 50%;
-                transform: translate(calc(0% + 50px)  , -50%);
+                left: 50px;
+                top: 30px;
                 opacity: 0;
                 width: 220px;
+                display: none;
+                @include medium { 
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(calc(0% + 50px)  , -50%);
+                    display: block;
+                }
             }
             &:nth-child(even){
                 .education-li{
-                    width: 50%;
-                    margin-left: auto;
-                    margin-right: unset;
-                    text-align: left;
-                    padding-left: 50px;
-                    padding-right: 0;
+                    width: 100%;
+                    @include medium {
+                        width: 50%;
+                        margin-left: auto;
+                        margin-right: unset;
+                        text-align: left;
+                        padding-left: 50px;
+                        padding-right: 0;
+                    }
                 }
                 &:before{
                     position: absolute;
                     content: attr(date-id);
                     width: 0;
                     height: 0;
-                    left: 50%;
+                    left: 22px;
                     border-radius: 50%;
-                    top: 50%;
-                    transform: translate(-50%, -50%);
+ 
+                    @include medium {
+                        top: 50%;
+                        transform: translate(-50%, -50%);
+                        left: 50%;
+                    }
                 }
                 &:after{
                     content: attr(data-date);
                     position: absolute;
                     font-size: 24px;
-                    left: 50%;
+                    left: 50px;
                     opacity: 0;
-                    text-align: right;
-                    transform: translate(calc(-50% - 160px), -50%);
+                    display: none;
+                    
+                    @include medium { 
+                        transform: translate(calc(-50% - 160px), -50%);
+                        left: 50%;
+                        text-align: right;
+                        display: block;
+                    }
                 }
             }
             &.active{
@@ -129,14 +177,20 @@
                     animation: educationshow 1s .5s forwards;
                 }
                 &:before{
-                    animation: rings 1s .3s forwards;
+                    animation: smallRings 1s .3s forwards;
+                    @include medium {
+                        animation: rings 1s .3s forwards;
+                    }
                 }
                 &:after{
                     animation: aftershow 1s .4s forwards;
                 }
                 &:nth-child(even){
                     &:before{
-                        animation: rings 1s .3s forwards;
+                        animation: smallRings 1s .3s forwards;
+                        @include medium {
+                            animation: rings 1s .3s forwards;
+                        }
                     }
                     &:after{
                         animation: aftershow 1s .4s forwards;
@@ -161,6 +215,24 @@
         transform: translate(-50%, -50%) scale(1);
         width: 40px;
         height: 40px;
+        opacity: 1;
+    }
+}
+
+@keyframes smallRings{
+    from{
+        width: 30px;
+        height: 30px;
+        opacity: 0;
+    }
+    80%{
+        transform:  translate(-50%, -50%) scale(1.2);
+        opacity: 1;
+    }
+    to{
+        transform: translate(-50%, -50%) scale(1);
+        width: 30px;
+        height: 30px;
         opacity: 1;
     }
 }

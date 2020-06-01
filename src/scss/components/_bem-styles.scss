@@ -70,14 +70,28 @@
 .title-container{
     width: 100%;
     text-align: center;
-    padding-bottom: 50px;
+    padding-bottom: 30px;
+    @include medium {
+        padding-bottom: 50px;
+    }
     .custom-title-low{
         display: inline-block;
         position: relative;
-        font-size: 55px;
+        font-size: 35px;
         font-weight: 400;
         overflow: hidden;
         color: transparent;
+        @include medium {
+            font-size: 55px;
+        }
+        svg{
+            width: 30px;
+            height: 30px;
+            @include medium {
+                width: 41px;
+                height: 43px;
+            }
+        }
         &:before{
             content: '';
             position: absolute;
@@ -136,6 +150,10 @@
     position: fixed;
     bottom: 20px;
     right: 20px;
+    display: none;
+    @include medium{ 
+        display: block;
+    }
     span{
         text-align: right;
         font-weight: 500;
@@ -168,12 +186,15 @@
 
 #socials{
     position: fixed;
-    display: flex;
+    display: none;
     flex-direction: column;
     width: 60px;
     align-items: center;
     bottom: 0;
     left: 0;
+    @include medium {
+        display: flex;
+    }
     &:before{
         content: '';
         position: absolute;

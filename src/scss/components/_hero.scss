@@ -15,11 +15,12 @@ Animation after Preloader
     background: $maincolor;
     width: 100%;
     max-width: 100%;
-    padding: 70px 20px 30px;
+    padding: 70px 20px 50px;
     position: relative;
-    height: 100vh;
+
     @include large {
         padding: 150px 20px 200px;
+        height: 100vh;
     }
     .hero-screen{
         display: flex;
@@ -32,19 +33,30 @@ Animation after Preloader
         position: relative;
         height: 100%;
         .hero-img{
-            flex: 0 0 45%;
-            order: 2;
+            flex: 0 0 100%;
+            order: 1;
             display: flex;
             flex-wrap: wrap;
             width: 100%;
+            @include medium {
+                flex: 0 0 45%;
+                order: 2;
+            }
             .hero-img-wrapper{
                 display: flex;
                 flex-wrap: wrap;
                 width: 100%;
                 align-items: center;
-                justify-content: space-between;
+                justify-content: center;
+                @include medium {
+                    justify-content: space-between;
+                }
                 .lap-wrapper{
                     position: relative;
+                    display: none;
+                    @include medium {
+                        display: block;
+                    }
                     &:before{
                         position: absolute;
                         content: '';
@@ -87,39 +99,81 @@ Animation after Preloader
             }
         }
         .hero-text{
-            order: 1;
-            flex: 0 0 55%;
+            order: 2;
+            flex: 0 0 100%;
             display: flex;
             position: relative;
+            margin-top: 75px;
+            @include medium {
+                order: 1;
+                flex: 0 0 55%;
+                margin-top: 75px;
+            }
             &:before{
                 position: absolute;
                 content: '';
                 min-height: 1px;
                 width: 70%;
                 right: 150px;
-                top: -300px;
+                transform: translateX(-50%);
+                top: -15px;
                 background: $maincolor;
-                animation: before 1s 8s forwards;
+                animation: smallBefore 1s 8s forwards;
+                display: none;
+                @include medium {
+                    animation: before 1s 8s forwards;
+                    top: -300px;
+
+                }
             }
             .page-article{
+                text-align: center;
+                @include medium {
+                    text-align: left;
+                }
+                .custom-title{
+                    font-size: 30px;
+                    line-height: 1.1;
+                    svg{
+                        width: 25px;
+                        height: 25px;
+                        @include medium {
+                            width: 38px;
+                            height: 43px;
+                        }
+                    }
+                    @include medium{
+                        font-size: 55px;
+                    }
+                }
                 h2{
-                    font-size: 65px;
+                    font-size: 35px;
                     color: $secondarycolor;
                     line-height: 1.1;
                     animation: articleTextAppearance 1s 6.55s forwards;
                     opacity: 0;
                     font-weight: 500;
+                    @include medium {
+                        font-size: 65px;
+                    }
                 }
                 h3{
-                    font-size: 55px;
+                    font-size: 25px;
                     color: $textcolor;
                     line-height: 1.1;
                     animation: articleTextAppearance 1s 6.7s forwards;
                     opacity: 0;
                     font-weight: 500;
+                    @include medium {
+                        font-size: 55px;
+                    }
                 }
                 .animate-text{
                     animation: articleTextAppearance 1s 6.9s forwards;
+                    font-size: 15px;
+                    @include medium { 
+                        font-size: 18px;
+                    }
                 }
             }
         }
@@ -148,7 +202,21 @@ Animation after Preloader
     }
 
     to{
-        min-height: 100vh;
+        min-height: calc(101% + 300px);
+        background: $darkenmaincolor;
+    }
+}
+
+@keyframes smallBefore{
+    from{
+        min-height: 1px;
+    }
+    1%{
+        background: $darkenmaincolor;
+    }
+
+    to{
+        min-height: 110%;
         background: $darkenmaincolor;
     }
 }
