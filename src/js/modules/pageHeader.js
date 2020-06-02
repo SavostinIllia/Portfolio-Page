@@ -15,9 +15,16 @@ function pageHeader() {
         $(this).click(function(e){
             e.preventDefault()
             const linkAttr= $(this).attr("pagesection")
-            $('html, body').animate({
-                scrollTop: ($(linkAttr).offset().top) - 50 + 'px'
-            }, 1000);
+            $('.page-navigation').removeClass('active')
+            $('.page-navigation ul li').removeClass('mobile-animated')
+            $('.page-navigation ul li').addClass('hide')
+            $('.logo').removeClass('menu-shown')
+            setTimeout(() => {
+                $('html, body').animate({
+                    scrollTop: ($(linkAttr).offset().top) - 50 + 'px'
+                }, 1000);
+            },1000)
+
             $('body').css({
                 overflowY: 'auto'
             })
@@ -56,12 +63,11 @@ function pageHeader() {
             else if(oldValue - newValue < 0){
                 $('header').removeClass('active')
                 $('header').addClass('hiden')
-                $('.page-navigation').removeClass('active')
+
             } else if(oldValue - newValue > 0){
                 $('header').addClass('active')
                 $('header').removeClass('hiden')
-                $('.page-navigation').removeClass('active')
-                $('.logo').removeClass('menu-shown')
+
             }
 
             oldValue = newValue;
