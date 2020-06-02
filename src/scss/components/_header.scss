@@ -4,16 +4,11 @@ header{
     width: 100%;
     background: transparent;
     right: 0;
-    overflow: hidden;
     z-index: 299;
     width: 100%;
-    padding-top: 15px;
     @include animationTransition;
-    @include small {
-        display: none;
-    }
-    @include medium {
-        display: block;
+    @include medium { 
+        padding-top: 15px;
     }
     &.active{
         top: 0;
@@ -36,28 +31,63 @@ header{
         justify-content: space-between;
         align-items: center;
         .logo{
-            max-width: 120px;
-            flex: 0 0 20%;
+            flex: 0 0 100%;
             cursor: pointer;
+            display: flex;
+            justify-content: center;
+            @include medium {
+                flex: 0 0 20%;
+                max-width: 120px;
+                padding-left: 20px;
+            }
             svg{
-                width: 100%;
+                display: inline-block;
+                width: auto;
                 height: 37px;
                 path{
                     cursor: pointer;
-                    @include animationTransition;
+                    @include animationTransition(.5s);
                     fill: transparent;
-                    stroke: $textcolor;
-                    &:hover{
-                        fill: $textcolor;
-                        @include animationTransition;
+                    stroke-dasharray: 570;
+                    stroke-dashoffset: 0;
+                    stroke: $secondarycolor;
+                }
+            }
+            &.menu-shown{
+                svg{
+                    path{
+                        stroke-dashoffset: 570;
+                        @include animationTransition(.5s);
                     }
                 }
             }
-        
         }
         .page-navigation{
-            flex: 0 0 57%;
+            flex: 0 0 100%;
             position: relative;
+            &.active{
+                height: 100vh;
+                background: $maincolor;
+                margin-top: -40px;
+                ul{
+                    display: block;
+                    .close-btn{
+                        margin-bottom: 25px;
+                    }
+                    li{
+                        margin-bottom: 10px;
+                        &:last-child{
+                            margin-bottom: 0;
+                        }
+                        a{
+                            font-size: 22px;
+                        }
+                    }
+                }
+            }
+            @include large{
+                flex: 0 0 57%;
+            }
             ul{
                 display: flex;
                 flex-wrap: wrap;
@@ -65,11 +95,12 @@ header{
                 justify-content: space-between;
                 justify-content: space-between;
                 position: relative;
+                display: none;
                 li{
                     flex: 0 0 16%;
                     text-align: center;
-                    animation: headerLiShow 1s forwards;
-                    opacity: 0;
+                    // animation: headerLiShow 1s forwards;
+                    opacity: 1;
                     a{
                         color: $secondarycolor;
                         font-size: 18px;
@@ -94,19 +125,19 @@ header{
                         }
                     }
                     &:nth-child(1){
-                        animation: headerLiShow 1s 8s forwards;
+                        // animation: headerLiShow 1s 8s forwards;
                     }
                     &:nth-child(2){
-                        animation: headerLiShow 1s 8.2s forwards;
+                        // animation: headerLiShow 1s 8.2s forwards;
                     }
                     &:nth-child(3){
-                        animation: headerLiShow 1s 8.4s forwards;
+                        // animation: headerLiShow 1s 8.4s forwards;
                     }
                     &:nth-child(4){
-                        animation: headerLiShow 1s 8.6s forwards;
+                        // animation: headerLiShow 1s 8.6s forwards;
                     }
                     &:nth-child(5){
-                        animation: headerLiShow 1s 8.8s forwards;
+                        // animation: headerLiShow 1s 8.8s forwards;
                     }
                 }
             }
@@ -125,6 +156,38 @@ header{
                 bottom: -3px;
                 left: 0;
                 @include animationTransition(.4s)
+            }
+        }
+        .mobile-menu{
+            display: none;
+            width: 100%;
+            position: absolute;
+            top: 0;
+            .close-btn{
+                position: absolute;
+                top: 0;
+
+            }
+            .mobile-navigation{
+                display: flex;
+                width: 100%;
+                flex-wrap: wrap;
+                align-items: center;
+                justify-content: center;
+                flex-direction: column;
+                li{
+                    a{
+                        font-size: 25px;
+                        color: $secondarycolor;
+                    }
+                }
+            }
+            &.active{
+                display: flex;
+                height: 100vh;
+                background: $maincolor;
+                overflow-y: auto;
+                justify-content: center;
             }
         }
 

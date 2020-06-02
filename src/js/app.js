@@ -8,7 +8,7 @@ import aboutMe from './modules/aboutMe';
 import htmlScroll from './modules/htmlScroll';
 import portfolio from './modules/portfolio';
 import inTouch from './modules/inTouch';
-
+import mobileMenu from './modules/mobileMenu';
 
 (function($){
 
@@ -22,6 +22,7 @@ import inTouch from './modules/inTouch';
 		slickSliders();
 		portfolio();
 		inTouch();
+		mobileMenu();
 	});
 	htmlScroll()
 

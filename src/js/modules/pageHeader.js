@@ -4,12 +4,12 @@ function pageHeader() {
     const headerLinks = $(".page-navigation ul li a")
     let oldValue = window.pageYOffset
     
-    logo.click(function(e){
-        e.preventDefault()
-        $('html, body').animate({
-            scrollTop: 0
-        }, 1000);
-    })
+    // logo.click(function(e){
+    //     e.preventDefault()
+    //     $('html, body').animate({
+    //         scrollTop: 0
+    //     }, 1000);
+    // })
 
     headerLinks.each(function(){
         $(this).click(function(e){
@@ -18,6 +18,10 @@ function pageHeader() {
             $('html, body').animate({
                 scrollTop: ($(linkAttr).offset().top) - 50 + 'px'
             }, 1000);
+            $('body').css({
+                overflowY: 'auto'
+            })
+            
         })
         $(this).mouseenter(function(e){
             const translateX= $(this).attr("pagetranslate")
@@ -33,6 +37,7 @@ function pageHeader() {
                 width: linkWidht + 'px'
             })
         })
+        
     })
 
     headerLinksWrapper.mouseleave(function(e){
@@ -51,9 +56,12 @@ function pageHeader() {
             else if(oldValue - newValue < 0){
                 $('header').removeClass('active')
                 $('header').addClass('hiden')
+                $('.page-navigation').removeClass('active')
             } else if(oldValue - newValue > 0){
                 $('header').addClass('active')
                 $('header').removeClass('hiden')
+                $('.page-navigation').removeClass('active')
+                $('.logo').removeClass('menu-shown')
             }
 
             oldValue = newValue;

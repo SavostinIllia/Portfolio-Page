@@ -15,7 +15,7 @@ Animation after Preloader
     background: $maincolor;
     width: 100%;
     max-width: 100%;
-    padding: 70px 20px 50px;
+    padding: 90px 20px 50px;
     position: relative;
 
     @include large {
@@ -104,6 +104,7 @@ Animation after Preloader
             display: flex;
             position: relative;
             margin-top: 75px;
+            justify-content: center;
             @include medium {
                 order: 1;
                 flex: 0 0 55%;

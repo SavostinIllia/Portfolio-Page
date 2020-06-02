@@ -2,20 +2,31 @@ footer{
    padding: 0px 20px 20px;
    position: relative;
 
-
     .footer-wrapper{
         display: flex;
         flex-wrap: wrap;
         width: 100%;
+        justify-content: space-between;
         .docs-col{
             flex: 0 0 100%;
             order: 2;
+            @include small (420px){
+                flex:  0 0 62%;
+            }
+            @include small (600px){
+                order: 1;
+                flex: 0 0 50%;
+            }
             @include medium {
-                flex: 0 0 25%;
+                flex: 0 0 40%;
             }
             .btn{
                 margin-bottom: 15px;
                 display: inline-block;
+                margin-right: 0px;
+                @include medium {
+                    margin-right: 0;
+                }
             }
         }
         .version{
@@ -25,8 +36,10 @@ footer{
             align-items: center;
             justify-content: center;
             order: 3;
+            margin-top: 20px;
             @include medium { 
-                flex: 0 0 50%;
+                flex: 0 0 100%;
+
             }
             p{
                 flex: 0 0 100%;
@@ -48,6 +61,10 @@ footer{
             display: flex;
             flex-wrap: wrap;
             margin-bottom: 20px;
+            @include small (600px){
+                order: 2;
+                flex: 0 0 40%;
+            }
             @include medium {
                 flex: 0 0 25%;
             }
