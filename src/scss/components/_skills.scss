@@ -33,7 +33,7 @@
                     position: relative;
                     overflow: hidden;
                     text-align: left;
-                
+                    z-index: 100;
                     .skill-more{
                         max-height: 1px;
                         overflow: hidden;
@@ -65,6 +65,8 @@
                         padding: 20px 0;
                         transform: translateY(-50%);
                         @include animationTransition;
+                        position: relative;
+                        z-index: -1;
                         h3{
                             color: $secondarycolor;
                             padding-bottom: 10px;
