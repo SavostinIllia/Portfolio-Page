@@ -15,7 +15,8 @@ function mobileMenu() {
                     $('.page-navigation ').addClass('active');
                     if($('.page-navigation').hasClass('active')){
                         $('body').css({
-                            overflowY: 'hidden'
+                            overflowY: 'hidden',
+                            "-webkit-overflow-scrolling": "touch"
                         })
                         $('.page-navigation ul li').removeClass('hide')
                         $('.page-navigation ul li').addClass('mobile-animated')

@@ -69,11 +69,11 @@ header{
             height: .01vh;
             overflow: hidden;
             width: 100%;
-            @include animationTransition(.5s, 1s);
+            @include animationTransition(.6s, .7s);
             &.active{
                 background: $maincolor;
-                height: 100vh;
-                @include animationTransition(.3s, .5s);
+                height: 100%;
+                @include animationTransition(.3s, .6s);
                 position: fixed;
                 top: 0;
                 width: 100%;
