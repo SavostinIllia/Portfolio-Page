@@ -1,7 +1,7 @@
 function pageHeader() {
     const logo = $('a.logo')
-    const headerLinksWrapper = $(".page-navigation")
-    const headerLinks = $(".page-navigation ul li a")
+    const headerLinksWrapper = $(".page-navigation .header-menu")
+    const headerLinks = $(".page-navigation .header-menu li a")
     let oldValue = window.pageYOffset
 
     headerLinks.each(function(){
@@ -11,12 +11,14 @@ function pageHeader() {
             $('.page-navigation').removeClass('active')
             $('.page-navigation ul li').removeClass('mobile-animated')
             $('.page-navigation ul li').addClass('hide')
+            $('.page-navigation .mobile-socials li').removeClass(' social-mobile-animated')
+            $('.page-navigation .mobile-socials li').addClass('social-hide')
             $('.logo').removeClass('menu-shown')
             setTimeout(() => {
                 $('html, body').animate({
                     scrollTop: ($(linkAttr).offset().top) - 50 + 'px'
                 }, 1000);
-            },1000)
+            },1500)
 
             $('body').css({
                 overflowY: 'auto'

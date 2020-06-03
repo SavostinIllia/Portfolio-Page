@@ -35,7 +35,7 @@ header{
             cursor: pointer;
             display: flex;
             justify-content: center;
-            @include medium {
+            @include large {
                 flex: 0 0 20%;
                 max-width: 120px;
                 padding-left: 20px;
@@ -46,7 +46,7 @@ header{
                 height: 37px;
                 path{
                     cursor: pointer;
-                    @include animationTransition(.5s, .3s);
+                    @include animationTransition(.5s, 1.2s);
                     fill: transparent;
                     stroke-dasharray: 570;
                     stroke-dashoffset: 0;
@@ -69,7 +69,7 @@ header{
             height: .01vh;
             overflow: hidden;
             width: 100%;
-            @include animationTransition(.6s, .7s);
+            @include animationTransition(.6s, .85s);
             &.active{
                 background: $maincolor;
                 height: 100%;
@@ -77,7 +77,7 @@ header{
                 position: fixed;
                 top: 0;
                 width: 100%;
-                ul{
+                .header-menu{
                     display: flex;
                     flex-direction: column;
                     @include animationTransition;
@@ -88,15 +88,42 @@ header{
                        
                         a{
                             font-size: 22px;
+                            position: relative;
+                            display: inline-block;
+                            &:before{
+                                content: '';
+                                display: block;
+                                width: .1%;
+                                height: 1.2px;
+                                background: $secondarycolor;
+                                top: 50%;
+                                left: 50%;
+                                position: absolute;
+                                transform: translate(-50%, -50%);
+                                @include animationTransition;
+                            }
                         }
-
+                        &:hover{
+                            a{
+                                &:before{
+                                    width: 100%;
+                                    @include animationTransition;
+                                    top: 50%;
+                                    left: 60%;
+                                    position: absolute;
+                                    transform:scale(1.3) translate(-45%, -50%);
+                                    opacity: 1;
+                                }
+                            }
+                        }
                     }
                 }
+
             }
             @include large{
                 flex: 0 0 57%;
             }
-            ul{
+            .header-menu{
                 flex-wrap: wrap;
                 width: 100%;
                 justify-content: space-between;
@@ -197,6 +224,60 @@ header{
                     }
                 }
             }
+            .mobile-socials{
+                flex-direction: row;
+                display: flex;
+                width: 90%;
+                justify-content: space-between;
+                margin: 50px auto 0;
+                max-width: 450px;
+                li{
+                    
+                    &.social-mobile-animated{
+                        opacity: 0;
+                        animation: mobileSocialsShow 1s 1.2s forwards;
+                    }
+                    &.social-hide{
+                        animation: mobileSocialsHide 1s  .5s forwards;
+                    }
+                    flex: 0 0 auto;
+                    a{
+                        padding: 10px;
+                        svg{
+                            width: 25px;
+                            height: 25px;
+                            fill: $textcolor;
+                            @include animationTransition;
+                            polygon,polyline,line{
+                                stroke: $textcolor;
+                                @include animationTransition;
+                            }
+                        }
+                        &:hover{
+                            svg{
+                                polygon,polyline,line{
+                                    stroke: $secondarycolor;
+                                    @include animationTransition;
+                                }
+                                fill: $secondarycolor;
+                                @include animationTransition;
+                            }
+                        }
+                    }
+                }
+            }
+            .header-cv{
+                display: block;
+                margin: 50px auto 0;
+                text-align: center;
+                &.active{
+                    opacity: 0;
+                    animation: headerCvShow 1s 1.5s forwards;
+                }
+                &.hide{
+                    animation: headerCvHide 1s .6s forwards;
+                }
+            }
             .li-hover{
                 position: absolute;
                 background: $secondarycolor;
@@ -214,38 +295,7 @@ header{
                 @include animationTransition(.4s)
             }
         }
-        .mobile-menu{
-            display: none;
-            width: 100%;
-            position: absolute;
-            top: 0;
-            .close-btn{
-                position: absolute;
-                top: 0;
 
-            }
-            .mobile-navigation{
-                display: flex;
-                width: 100%;
-                flex-wrap: wrap;
-                align-items: center;
-                justify-content: center;
-                flex-direction: column;
-                li{
-                    a{
-                        font-size: 25px;
-                        color: $secondarycolor;
-                    }
-                }
-            }
-            &.active{
-                display: flex;
-                height: 100vh;
-                background: $maincolor;
-                overflow-y: auto;
-                justify-content: center;
-            }
-        }
 
     }
 }
@@ -286,6 +336,49 @@ header{
 }
 
 @keyframes mobileHide{
+    from{
+        opacity: 1;
+        
+    }
+    to{
+        opacity: 0;
+        transform: translateY(10px);
+    }
+}
+
+@keyframes mobileSocialsShow {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to{
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes mobileSocialsHide{
+    from{
+        opacity: 1;
+        // transform: translateY(0);
+    }
+    to{
+        opacity: 0;
+        transform: translateY(10px);
+    }
+}
+
+@keyframes headerCvShow{
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to{
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+@keyframes headerCvHide{
     from{
         opacity: 1;
         

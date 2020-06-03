@@ -30,7 +30,7 @@
             background: $secondarycolor;
             left: 20px;
             top: 0;
-            @include medium{
+            @include medium (768px){
                 left: 50%;
                 transform: translateX(-50%);
             }
@@ -44,17 +44,29 @@
                 opacity: 0;
                 width: 100%;
                 padding-left: 50px;
+                max-width: 300px;
+                @include animationTransition;
+
+                @include small (460px) {
+                    max-width: 430px;
+                    @include animationTransition;
+                }
                 @include medium{
+                    max-width: unset;
+                }
+                @include medium (768px){
                     width: 50%;
                     margin-right: auto;
                     text-align: right;
                     padding-right: 50px;
+                    max-width: unset;
+                    padding-left: 0;
                 }
                 h3{
                     color: $darkenmaincolor;
                     font-size: 18px;
                     opacity: 1;
-                    @include medium {
+                    @include medium (768px) {
                         font-size: 24px;
                         padding-bottom: 10px;
                     }
@@ -72,7 +84,7 @@
                     color: $secondarycolor;
                     display: block;
                     font-size: 18px;
-                    @include medium {
+                    @include medium (768px){
                         display: none;
                     }
                 }
@@ -80,7 +92,7 @@
                     color: $textcolor;
                     font-size: 15px;
                     opacity: 1;
-                    @include medium { 
+                    @include medium (768px) { 
                         font-size: 16px;
                     }
                     strong{
@@ -106,7 +118,7 @@
                 align-items: center;
                 justify-content: center;
                 opacity: 0;
-                @include medium{
+                @include medium (768px){
                     font-size: 25px;
                     top: 50%;
                     left: 50%;
@@ -123,7 +135,7 @@
                 opacity: 0;
                 width: 220px;
                 display: none;
-                @include medium { 
+                @include medium (768px){ 
                     top: 50%;
                     left: 50%;
                     transform: translate(calc(0% + 50px)  , -50%);
@@ -133,7 +145,7 @@
             &:nth-child(even){
                 .education-li{
                     width: 100%;
-                    @include medium {
+                    @include medium (768px){
                         width: 50%;
                         margin-left: auto;
                         margin-right: unset;
@@ -150,7 +162,7 @@
                     left: 22px;
                     border-radius: 50%;
  
-                    @include medium {
+                    @include medium (768px) {
                         top: 50%;
                         transform: translate(-50%, -50%);
                         left: 50%;
@@ -164,7 +176,7 @@
                     opacity: 0;
                     display: none;
                     
-                    @include medium { 
+                    @include medium (768px) { 
                         transform: translate(calc(-50% - 160px), -50%);
                         left: 50%;
                         text-align: right;
@@ -178,7 +190,7 @@
                 }
                 &:before{
                     animation: smallRings 1s .3s forwards;
-                    @include medium {
+                    @include medium (768px) {
                         animation: rings 1s .3s forwards;
                     }
                 }
@@ -188,7 +200,7 @@
                 &:nth-child(even){
                     &:before{
                         animation: smallRings 1s .3s forwards;
-                        @include medium {
+                        @include medium (768px){
                             animation: rings 1s .3s forwards;
                         }
                     }

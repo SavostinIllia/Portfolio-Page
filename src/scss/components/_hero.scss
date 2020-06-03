@@ -17,7 +17,9 @@ Animation after Preloader
     max-width: 100%;
     padding: 90px 20px 50px;
     position: relative;
-
+    @include medium {
+        padding-top: 150px;
+    }
     @include large {
         padding: 150px 20px 200px;
         height: 100vh;
@@ -38,7 +40,7 @@ Animation after Preloader
             display: flex;
             flex-wrap: wrap;
             width: 100%;
-            @include medium {
+            @include large {
                 flex: 0 0 45%;
                 order: 2;
             }
@@ -48,7 +50,7 @@ Animation after Preloader
                 width: 100%;
                 align-items: center;
                 justify-content: center;
-                @include medium {
+                @include large {
                     justify-content: space-between;
                 }
                 .lap-wrapper{
@@ -78,6 +80,9 @@ Animation after Preloader
                 }
                 .phone-wrapper  {
                     position: relative;
+                    @include medium {
+                        display: none;
+                    }
                     &:before{
                         position: absolute;
                         content: '';
@@ -94,6 +99,7 @@ Animation after Preloader
                         width: 130px;
                         height: 300px;
                         animation: heroLap 2s  infinite;
+ 
                     }
                 }
             }
@@ -105,7 +111,7 @@ Animation after Preloader
             position: relative;
             margin-top: 75px;
             justify-content: center;
-            @include medium {
+            @include large {
                 order: 1;
                 flex: 0 0 55%;
                 margin-top: 75px;
@@ -172,6 +178,12 @@ Animation after Preloader
                 .animate-text{
                     animation: articleTextAppearance 1s 6.9s forwards;
                     font-size: 15px;
+                    br{
+                        display: none;
+                        @include large {
+                            display: block;
+                        }
+                    }
                     @include medium { 
                         font-size: 18px;
                     }

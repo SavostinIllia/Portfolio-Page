@@ -8,7 +8,7 @@ function mobileMenu() {
 
     $(document).ready(function(){
 
-        if ( $(window).width() < 639){
+        if ( $(window).width() < 900){
             $('.logo').click(function(e){
                e.preventDefault()
                $(this).addClass('menu-shown')
@@ -18,16 +18,31 @@ function mobileMenu() {
                             overflowY: 'hidden',
                             "-webkit-overflow-scrolling": "touch"
                         })
-                        $('.page-navigation ul li').removeClass('hide')
-                        $('.page-navigation ul li').addClass('mobile-animated')
+                        $('.page-navigation .header-menu li').removeClass('hide')
+                        $('.page-navigation .header-menu li').addClass('mobile-animated')
+                        
+                        $('.page-navigation .mobile-socials li').addClass('social-mobile-animated')
+                        $('.page-navigation .mobile-socials li').removeClass('social-hide')
+
+                        $('.page-navigation .header-cv').addClass('active')
+                        $('.page-navigation .header-cv').removeClass('hide')
                     }
             })
             $('.page-navigation ul').find('.close-btn').click(function(e){
                 e.preventDefault()
                 $('.page-navigation ').removeClass('active')
-                $('.logo').removeClass('menu-shown')               
-                $('.page-navigation ul li').removeClass('mobile-animated')
-                $('.page-navigation ul li').addClass('hide')
+                $('.logo').removeClass('menu-shown')      
+
+                $('.page-navigation .header-menu li').removeClass('mobile-animated')
+                $('.page-navigation .header-menu li').addClass('hide')
+
+                $('.page-navigation .mobile-socials li').removeClass(' social-mobile-animated')
+                $('.page-navigation .mobile-socials li').addClass('social-hide')
+
+                
+                $('.page-navigation .header-cv').removeClass('active')
+                $('.page-navigation .header-cv').addClass('hide')
+
                 if(!$('.page-navigation').hasClass('active')){
                     $('body').css({
                         overflowY: 'auto'

@@ -27,7 +27,10 @@ ME - 1s 2.7s
             justify-content: center;
             align-items: center;
             @include medium {
-                 flex: 0 0 50%;
+                 flex: 0 0 100%;
+            }
+            @include large{
+                flex: 0 0 50%;
             }
             &:before{
                 position: absolute;
@@ -41,6 +44,7 @@ ME - 1s 2.7s
                 opacity: 0;
                 display: none;
                 @include medium {
+                    left: 90px;
                      display: block;
                 }
             }
@@ -65,6 +69,10 @@ ME - 1s 2.7s
                 opacity: 0;
                 transform: rotate(-3deg) translateX(-50%);
                 @include medium {
+                    max-width: 630px;
+                    top: -50px;
+                }
+                @include large {
                     max-width: 653px;
                     top: -34px;
                     left: -82px;
@@ -79,6 +87,9 @@ ME - 1s 2.7s
                 top: -94px;
                 transform: rotate(-2deg) translateX(-50%);
                 @include medium {
+                    max-width: 305px;
+                }
+                @include large {
                     max-width: 300px;
                     left: 25px;
                     top: -90px;
@@ -89,7 +100,7 @@ ME - 1s 2.7s
                     animation: imgbefore 1s 3s forwards;
                 }
                 path{
-                    animation: svgDraw 2.5s .5s forwards; //2,5
+                    animation: svgDraw 2.5s forwards; //2,5
                 }
                 img{
                     animation: svgDrawnImg 1s 2.2s forwards;
@@ -105,7 +116,7 @@ ME - 1s 2.7s
             align-items: center;
             text-align: center;
             padding: 0 20px;
-            @include medium { 
+            @include large { 
                 flex: 0 0 50%;
                 padding: 0;
                 text-align: left;
@@ -115,11 +126,15 @@ ME - 1s 2.7s
                 opacity: 0;
                 &.animate-text{
                     font-size: 15px;
-                    animation-delay: 3.5s;
+                    animation-delay: .1s;
                     opacity: 0;
                     margin-top: 0;
                     @include medium { 
                         font-size: 18px;
+                        padding-bottom: 0;
+                        animation-delay: 3.5s;
+                    }
+                    @include large{
                         padding-bottom: 100px;
                     }
                 }

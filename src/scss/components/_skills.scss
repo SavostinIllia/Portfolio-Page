@@ -1,6 +1,6 @@
 #skills{
     padding: 0 20px 50px;
-    @include medium {
+    @include large {
         padding-bottom: 100px;
     }
     .section-container{
@@ -11,6 +11,10 @@
             justify-content: space-between;
             align-items: flex-start;
             align-content: flex-start;
+            @include medium {
+                justify-content: center;
+                align-items: center;
+            }
             .skill-card{
                 flex: 0 0 100%;
                 max-width: 400px;
@@ -19,6 +23,11 @@
                 opacity: 0;
                 margin: 0 auto 30px ;
                 @include medium {
+                    margin: unset;
+                    flex: 0 0 100%;
+                    margin-bottom: 50px;
+                }
+                @include large {
                     margin: unset;
                     flex: 0 0 32%;
                 }
