@@ -63,6 +63,46 @@ footer{
                     }
                 }
             }
+            .socials-wrapper{
+                display: flex;
+                flex-wrap: wrap;
+                flex-direction: row;
+                justify-content: space-between;
+                width: 100%;
+                max-width: 290px;
+                @include xxlarge{
+                    display: none;
+                }
+                li{
+                    flex: 0 0 20%;
+                    text-align: center;
+                    a{
+                        svg{
+                            width: 26px;
+                            height: 26px;
+                            fill: $textcolor;
+                            @include animationTransition;
+                            &:hover{
+                                fill: $secondarycolor;
+                                @include animationTransition;
+                            }
+                        }
+                    }
+                    &:nth-child(5){
+                        svg{
+                            polygon,polyline,line{
+                                @include animationTransition;
+                            }
+                            &:hover{
+                                polygon,polyline,line{
+                                    stroke: $secondarycolor;
+                                    @include animationTransition;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
         }
         .contacts{
             flex: 0 0 100%;

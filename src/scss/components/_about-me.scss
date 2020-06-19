@@ -13,12 +13,23 @@ ME - 1s 2.7s
     @include medium { 
         padding-bottom: 100px;
     }
+    @include large{
+        padding-bottom: 0;
+    }
+    @include xlarge{
+        padding-bottom: 50px;
+    }
     .about-me-wrapper{
         display: flex;
         flex-wrap: wrap;
         width: 100%;
         padding-top: 75px;
-
+        @include large{
+            padding-top: 0;
+        }
+        @include xlarge{
+            justify-content: space-between;
+        }
         .about-me-img {
             display: flex;
             position: relative;
@@ -32,6 +43,10 @@ ME - 1s 2.7s
             @include large{
                 flex: 0 0 50%;
             }
+            @include xlarge{
+                flex: 0 0 39%;
+            }
+            
             &:before{
                 position: absolute;
                 top: -20px;
@@ -44,8 +59,15 @@ ME - 1s 2.7s
                 opacity: 0;
                 display: none;
                 @include medium {
-                    left: 90px;
-                     display: block;
+                    left: 50%;
+                    transform: translateX(-120%);
+                    display: block;
+                }
+                @include large {
+                    left: 60%;
+                }
+                @include xlarge{
+                    left: 50%;
                 }
             }
             svg{
@@ -53,6 +75,14 @@ ME - 1s 2.7s
                 height: 300px;
                 @include medium {
                     width: 495px;
+                    height: 380px;
+                }
+                @include large{
+                    width: 385px;
+                    height: 310px;
+                }
+                @include xlarge{
+                    width: 475px;
                     height: 380px;
                 }
             }
@@ -73,9 +103,12 @@ ME - 1s 2.7s
                     top: -50px;
                 }
                 @include large {
-                    max-width: 653px;
-                    top: -34px;
-                    left: -82px;
+                    max-width: 520px;
+                    top: -40px;
+                    left: 50%;
+                }
+                @include xlarge {
+                    max-width: 620px;
                 }
             }
             .me{
@@ -90,9 +123,12 @@ ME - 1s 2.7s
                     max-width: 305px;
                 }
                 @include large {
-                    max-width: 300px;
-                    left: 25px;
-                    top: -90px;
+                    max-width: 268px;
+                    left: 50%;
+                    top: -98px;
+                }
+                @include xlarge{
+                    max-width: 312px;
                 }
             }
             &.active{
@@ -116,14 +152,26 @@ ME - 1s 2.7s
             align-items: center;
             text-align: center;
             padding: 0 20px;
+            justify-content: center;
             @include large { 
                 flex: 0 0 50%;
                 padding: 0;
                 text-align: left;
+                align-items: flex-start;
+            }
+            @include xlarge {
+
+                padding-top: 30px;
             }
 
             p{
                 opacity: 0;
+                br{
+                    display: none;
+                    @include large {
+                        display: block;
+                    }
+                }
                 &.animate-text{
                     font-size: 15px;
                     animation-delay: .1s;
@@ -133,9 +181,15 @@ ME - 1s 2.7s
                         font-size: 18px;
                         padding-bottom: 0;
                         animation-delay: 3.5s;
+                        max-width: 650px;
                     }
                     @include large{
-                        padding-bottom: 100px;
+                        font-size: 15px;
+                        padding-right: 30px;
+                    }
+                    @include xlarge{
+                        padding-bottom: 0;
+                        font-size: 18px;
                     }
                 }
             }

@@ -12,11 +12,12 @@
     overflow: hidden;
     @include animationTransition(.2s);
     z-index: 300;
+    animation: preloaderhide 1s 3.5s forwards;
     // SVG TEXT
     .logo-wrapper{
       width: 100%;
       max-width: 545px;
-      .logo{
+      .logo-svg{
           width: 100%;
           height: auto;
           @media screen and (min-width: 640px){
@@ -90,10 +91,14 @@
       }
     }
     // SVG TEXT
-  &.hide{
-      animation: preloaderhide 2s ;
-      top: -101vh;
-  }
+    .preloader-loaded{
+        position: absolute;
+        bottom: 20px;
+        width: 0px;
+        height: 1px;
+        animation: preloaderAnimated 5s forwards;
+        background: $maincolor;
+    }
 }
 
 // SVG ANIMATION
@@ -127,5 +132,14 @@
     100% {
       top: -100vh;
       transform: scale(0.8);
+    }
+}
+
+@keyframes preloaderAnimated{
+    from{
+        width: 0px;
+    }
+    to{
+        width: 100px;
     }
 }

@@ -7,13 +7,22 @@
         .skills-card-wrapper{
             display: flex;
             flex-wrap: wrap;
-            width: 100%;
+            width: auto;
             justify-content: space-between;
             align-items: flex-start;
             align-content: flex-start;
             @include medium {
                 justify-content: center;
                 align-items: center;
+            }
+            @include medium (768px) {
+                justify-content: center;
+                align-items: flex-start;
+                margin-left: -20px;
+            }
+            @include large{
+                margin-left: 0;
+                justify-content: space-between;
             }
             .skill-card{
                 flex: 0 0 100%;
@@ -26,6 +35,11 @@
                     margin: unset;
                     flex: 0 0 100%;
                     margin-bottom: 50px;
+                }
+                @include medium (768px) {
+                    margin-left: 30px;
+                    flex-basis: calc(49% - 30px);
+                    margin-bottom: 30px;
                 }
                 @include large {
                     margin: unset;
@@ -82,6 +96,7 @@
                         }
                         p{
                             padding-bottom: 15px;
+                            font-size: 14px;
                         }
                     }
                     &:before{
@@ -232,6 +247,12 @@
                                 @include medium { 
                                     font-size: 18px;
                                 }
+                                @include large{
+                                    font-size: 14px;
+                                }
+                                @include xlarge{
+                                    font-size: 17px;
+                                }
                             }
                             li{
                                 flex: 0 0 auto;
@@ -242,6 +263,12 @@
                                 font-size: 12px;
                                 @include medium {
                                     font-size: 18px;
+                                }
+                                @include large{
+                                    font-size: 12px;
+                                }
+                                @include xlarge{
+                                    font-size: 17px;
                                 }
                                 &:before{
                                     content: "\22D7";
@@ -341,7 +368,6 @@
         height: 0;
         padding: 0;
         margin: 0;
-
     }
 }
 // SHOW ANIMATION

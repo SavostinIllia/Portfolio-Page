@@ -1,18 +1,21 @@
 
 function pagePreloader(){ 
     // PRELOADER
-    // const preloader = document.querySelector('#preloader')
-    // $('body').css({
-    //     overflowY: 'hidden'
-    // })
-    // preloader.addEventListener('animationend', () => {
-    //     setTimeout(()=>{
-    //         preloader.classList.add('hide')
-    //         $('body').css({
-    //             overflowY: 'auto'
-    //         })
-    //     }, 1000)
-    // });
+    const svgDraw = $('.logo-svg')
+    const headerDescktopNav = $('.header-desktop li')
+    $('.preloader-loaded').on('animationstart', function(){
+        $('body').css({
+            overflowY: 'hidden'
+        })
+    })
+    $('.preloader-loaded').on('animationend', function(){
+        $('.header-desktop li').addClass('active')
+        $('body').css({
+            overflowY: 'auto'
+        })
+        $('#hero').find($('.hero-text')).addClass('active')
+    })
+    
     // PRELOADER
 }
 

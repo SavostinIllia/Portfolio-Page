@@ -20,9 +20,18 @@ Animation after Preloader
     @include medium {
         padding-top: 150px;
     }
+    @include medium (768px) {
+        padding: 150px 40px 50px;
+    }
     @include large {
-        padding: 150px 20px 200px;
-        height: 100vh;
+        padding: 80px 20px 100px;
+    }
+    @include xlarge {
+        padding: 150px 20px 100px;
+
+    }
+    @include xxlarge {
+        height: 100vh;  
     }
     .hero-screen{
         display: flex;
@@ -33,17 +42,21 @@ Animation after Preloader
         max-width: 1240px;
         margin: 0 auto;
         position: relative;
-        height: 100%;
         .hero-img{
             flex: 0 0 100%;
             order: 1;
             display: flex;
             flex-wrap: wrap;
             width: 100%;
-            @include large {
-                flex: 0 0 45%;
+            @include large{
+                flex: 0 0 25%;
                 order: 2;
             }
+            @include xlarge {
+                flex: 0 0 47%;
+                order: 2;
+            }
+
             .hero-img-wrapper{
                 display: flex;
                 flex-wrap: wrap;
@@ -52,6 +65,9 @@ Animation after Preloader
                 justify-content: center;
                 @include large {
                     justify-content: space-between;
+                }
+                @include xlarge{
+                    justify-content: center;
                 }
                 .lap-wrapper{
                     position: relative;
@@ -76,12 +92,25 @@ Animation after Preloader
                         width: 390px;
                         height: 410px;
                         animation: heroLap 2s infinite;
+                        @include xlarge {
+                            width: 380px;
+                        }
                     }
                 }
                 .phone-wrapper  {
                     position: relative;
                     @include medium {
                         display: none;
+                    }
+                    @include medium(768px){
+                        display: block;
+                        margin-left: 50px;
+                    }
+                    @include large{
+                        display: none;
+                    }
+                    @include xlarge{
+                        display: block;
                     }
                     &:before{
                         position: absolute;
@@ -113,26 +142,32 @@ Animation after Preloader
             justify-content: center;
             @include large {
                 order: 1;
-                flex: 0 0 55%;
+                flex: 0 0 58%;
                 margin-top: 75px;
+                justify-content: flex-start;
             }
+            @include xlarge{
+                flex:  0 0 53%;
+
+            }
+            &.active{
             &:before{
                 position: absolute;
                 content: '';
                 min-height: 1px;
-                width: 70%;
-                right: 150px;
+                width: 75%;
+                right: -230px;
                 transform: translateX(-50%);
-                top: -15px;
+                top: -100%;
                 background: $maincolor;
-                animation: smallBefore 1s 8s forwards;
+                animation: smallBefore 1s 3s forwards;
                 display: none;
-                @include medium {
-                    animation: before 1s 8s forwards;
-                    top: -300px;
-
+                @include xlarge{
+                    display: block;
                 }
             }
+            }
+
             .page-article{
                 text-align: center;
                 @include medium {
@@ -174,6 +209,9 @@ Animation after Preloader
                     @include medium {
                         font-size: 55px;
                     }
+                    @include large {
+                        font-size: 45px;
+                    }
                 }
                 .animate-text{
                     animation: articleTextAppearance 1s 6.9s forwards;
@@ -182,10 +220,17 @@ Animation after Preloader
                         display: none;
                         @include large {
                             display: block;
+                            
                         }
                     }
                     @include medium { 
                         font-size: 18px;
+                    }
+                    @include large {
+                        font-size: 15px;
+                    }
+                    @include xlarge{
+                        font-size: 17px;
                     }
                 }
             }
@@ -215,7 +260,7 @@ Animation after Preloader
     }
 
     to{
-        min-height: calc(101% + 300px);
+        min-height: 200px;
         background: $darkenmaincolor;
     }
 }
@@ -229,7 +274,7 @@ Animation after Preloader
     }
 
     to{
-        min-height: 110%;
+        min-height: 210%;
         background: $darkenmaincolor;
     }
 }
