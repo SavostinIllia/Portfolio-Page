@@ -98,6 +98,11 @@ gulp.task('images', function(){
     .pipe(gulp.dest('./dist')); 
 })
 
+// Copy all files from /src/*** */ and all docs files to /dist
+gulp.task('documents', function(){
+	return gulp.src('./src/**/*.{pdf,docx}', {base: './src/'} )
+    .pipe(gulp.dest('./dist')); 
+})
 
 // Compile app.js files from /src to /dist
 gulp.task('scripts', function() {
@@ -147,11 +152,12 @@ gulp.task('watch', function(){
   gulp.watch(['./src/**/*.html', './src/*.html'], gulp.series('html', 'clearCache', 'reload'));
   gulp.watch('./src/js/**/*.js', gulp.series('scripts', 'clearCache', 'reload'));
   gulp.watch('./src/**/*.{jpg,jpeg,png,svg,gif}', gulp.series('images'));
+  gulp.watch('./src/**/*.{pdf,docx}', gulp.series('documents'));
 });
 
 
 // Export files from /src to /dist
-gulp.task('export', gulp.parallel('scss', 'css', 'html', 'scripts', 'images'));
+gulp.task('export', gulp.parallel('scss', 'css', 'html', 'scripts', 'images', 'documents'));
 
 // Clean, copy from node_modules and export /src to /dist
 gulp.task('build', gulp.series('clean', 'libs', 'jsLibs', 'export'))
