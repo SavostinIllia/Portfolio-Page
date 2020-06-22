@@ -146,6 +146,11 @@
                     animation: work-show 1s forwards;
                 }
             }
+            &:nth-child(5){
+                &.active{
+                    animation: work-show 1s forwards;
+                }
+            }
 
         }
     }
