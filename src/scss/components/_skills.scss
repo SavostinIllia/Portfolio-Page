@@ -1,386 +1,384 @@
-#skills{
-    padding: 0 20px 50px;
-    @include large {
-        padding-bottom: 100px;
-    }
-    .section-container{
-        .skills-card-wrapper{
-            display: flex;
-            flex-wrap: wrap;
-            width: auto;
-            justify-content: space-between;
-            align-items: flex-start;
-            align-content: flex-start;
-            @include medium {
-                justify-content: center;
-                align-items: center;
-            }
-            @include medium (768px) {
-                justify-content: center;
-                align-items: flex-start;
-                margin-left: -20px;
-            }
-            @include large{
-                margin-left: 0;
-                justify-content: space-between;
-            }
-            .skill-card{
-                flex: 0 0 100%;
-                max-width: 400px;
-                position: relative;
+#skills {
+  padding: 0 20px 50px;
+  @include large {
+    padding-bottom: 100px;
+  }
+  .section-container {
+    .skills-card-wrapper {
+      display: flex;
+      flex-wrap: wrap;
+      width: auto;
+      justify-content: space-between;
+      align-items: flex-start;
+      align-content: flex-start;
+      @include medium {
+        justify-content: center;
+        align-items: center;
+      }
+      @include medium(768px) {
+        justify-content: center;
+        align-items: flex-start;
+        margin-left: -20px;
+      }
+      @include large {
+        margin-left: 0;
+        justify-content: space-between;
+      }
+      .skill-card {
+        flex: 0 0 100%;
+        max-width: 400px;
+        position: relative;
+        @include animationTransition;
+        opacity: 0;
+        margin: 0 auto 30px;
+        @include medium {
+          margin: unset;
+          flex: 0 0 100%;
+          margin-bottom: 50px;
+        }
+        @include medium(768px) {
+          margin-left: 30px;
+          flex-basis: calc(49% - 30px);
+          margin-bottom: 30px;
+        }
+        @include large {
+          margin: unset;
+          flex: 0 0 32%;
+        }
+        .skill-card-content {
+          box-shadow: -5px -5px 10px rgba($secondarycolor, 0.2),
+            5px 5px 10px rgba(0, 0, 0, 0.5);
+          border-radius: 15px;
+          padding: 0 25px 15px;
+          height: 100%;
+          min-height: 435px;
+          @include animationTransition;
+          position: relative;
+          overflow: hidden;
+          text-align: left;
+          z-index: 100;
+          .skill-more {
+            max-height: 1px;
+            overflow: hidden;
+            @include animationTransition(2s, -0.4s);
+            position: relative;
+            z-index: 200;
+          }
+          .skill-img {
+            text-align: center;
+            padding: 20px 0;
+            position: relative;
+            z-index: 100;
+            background: $maincolor;
+            transform: translateY(100px);
+            @include animationTransition;
+            position: relative;
+            z-index: 50;
+            svg {
+              max-width: 170px;
+              height: 100%;
+              path,
+              circle {
+                fill: $textcolor;
                 @include animationTransition;
-                opacity: 0;
-                margin: 0 auto 30px ;
-                @include medium {
-                    margin: unset;
-                    flex: 0 0 100%;
-                    margin-bottom: 50px;
+              }
+            }
+          }
+          .skill-text {
+            padding: 20px 0;
+            transform: translateY(-50%);
+            @include animationTransition;
+            position: relative;
+            z-index: -1;
+            h3 {
+              color: $secondarycolor;
+              padding-bottom: 10px;
+            }
+            p {
+              padding-bottom: 15px;
+              font-size: 14px;
+            }
+          }
+          &:before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            background: url(../img/decorate-sprite.png) center no-repeat;
+            width: 120px;
+            height: 120px;
+            background-size: cover;
+            background-position-y: 5px;
+            z-index: 100;
+            @include animationTransition;
+          }
+          &:after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            background: url(../img/decorate-sprite.png) center no-repeat;
+            width: 120px;
+            height: 120px;
+            background-size: cover;
+            background-position-y: -110px;
+            z-index: 100;
+            @include animationTransition;
+          }
+          &:hover {
+            @include animationTransition;
+            height: 100%;
+            box-shadow: inset -5px -5px 10px rgba($secondarycolor, 0.2),
+              inset 5px 5px 10px rgba(0, 0, 0, 0.5);
+            .skill-img {
+              transform: translateY(8px);
+              @include animationTransition;
+              svg {
+                path {
+                  @include animationTransition;
+                  fill: $darkenmaincolor;
+                  &.cls-1,
+                  &.cls-3 {
+                    fill: $secondarycolor;
+                  }
                 }
-                @include medium (768px) {
-                    margin-left: 30px;
-                    flex-basis: calc(49% - 30px);
-                    margin-bottom: 30px;
+                circle {
+                  fill: $secondarycolor;
+                }
+              }
+            }
+            .skill-text {
+              transform: translateY(0);
+              @include animationTransition;
+            }
+            &.shown {
+              @include animationTransition;
+              .skill-more {
+                max-height: 1px;
+                @include animationTransition(0.7s, -0.2s);
+              }
+              .skill-img {
+                max-height: 1px;
+                overflow: hidden;
+                padding: 0;
+                animation: showSkillImg 0.7s 0.55s forwards;
+              }
+              .skill-text {
+                max-height: 1px;
+                overflow: hidden;
+                padding: 0;
+                animation: showSkillImg 0.7s 0.55s forwards;
+              }
+            }
+            &:before {
+              background-position-y: -110px;
+              @include animationTransition;
+            }
+            &:after {
+              background-position-y: 5px;
+              @include animationTransition;
+            }
+          }
+          &.active {
+            &:after {
+              background: none;
+            }
+            &:before {
+              background: none;
+            }
+            @include animationTransition;
+            .skill-more {
+              max-height: 900px;
+              @include animationTransition(0.7s, 0.4s);
+            }
+            .skill-img {
+              animation: hideSkillImg 0.5s forwards;
+            }
+            .skill-text {
+              animation: hideSkillText 0.5s forwards;
+            }
+          }
+          &.shown {
+            @include animationTransition;
+            .skill-more {
+              max-height: 1px;
+              @include animationTransition(1s, -0.4s);
+            }
+            .skill-img {
+              max-height: 1px;
+              overflow: hidden;
+              @include animationTransition;
+              animation: showSkillImg 1s 0.8s forwards;
+              padding: 20px 0;
+            }
+            .skill-text {
+              max-height: 1px;
+              overflow: hidden;
+              padding: 0;
+              animation: showSkillImg 1s 0.8s forwards;
+            }
+          }
+        }
+        &.active {
+          &:nth-child(1) {
+            animation: cardAppearence 1s 1s forwards;
+          }
+          &:nth-child(2) {
+            animation: cardAppearence 1s 1.2s forwards;
+          }
+          &:nth-child(3) {
+            animation: cardAppearence 1s 1.5s forwards;
+          }
+        }
+        &.hard-skill-card {
+          .hard-skill-list {
+            display: flex;
+            flex-direction: column;
+            flex-wrap: wrap;
+            max-height: 600px;
+            .hard-skill {
+              padding-top: 15px;
+              flex: 0 1 100%;
+              span {
+                color: $textcolor;
+                display: block;
+                margin-bottom: 10px;
+                font-size: 14px;
+                @include medium {
+                  font-size: 18px;
                 }
                 @include large {
-                    margin: unset;
-                    flex: 0 0 32%;
+                  font-size: 14px;
                 }
-                .skill-card-content{
-                    box-shadow: -5px -5px 10px rgba($secondarycolor, .2),
-                    5px 5px 10px rgba(0,0,0,.5);
-                    border-radius: 15px;
-                    padding: 0 25px 15px;
-                    height: 100%;
-                    min-height: 435px;
-                    @include animationTransition;
-                    position: relative;
-                    overflow: hidden;
-                    text-align: left;
-                    z-index: 100;
-                    .skill-more{
-                        max-height: 1px;
-                        overflow: hidden;
-                        @include animationTransition(2s, -.4s);
-                        position: relative;
-                        z-index: 200;
-                    }   
-                    .skill-img{
-                        text-align: center;
-                        padding: 20px 0;
-                        position: relative;
-                        z-index: 100;
-                        background: $maincolor;
-                        transform: translateY(100px);
-                        @include animationTransition;
-                        position: relative;
-                        z-index: 50;
-                        svg{
-                            max-width: 170px;
-                            height: 100%;
-                            path, circle{
-                                fill: $textcolor;
-                                @include animationTransition;
-                            }
-                            
-                        }
-                    }
-                    .skill-text{
-                        padding: 20px 0;
-                        transform: translateY(-50%);
-                        @include animationTransition;
-                        position: relative;
-                        z-index: -1;
-                        h3{
-                            color: $secondarycolor;
-                            padding-bottom: 10px;
-                        }
-                        p{
-                            padding-bottom: 15px;
-                            font-size: 14px;
-                        }
-                    }
-                    &:before{
-                        content: '';
-                        position: absolute;
-                        top: 0;
-                        left: 0;
-                        background: url(../img/decorate-sprite.png) center no-repeat;
-                        width: 120px;
-                        height: 120px;
-                        background-size: cover;
-                        background-position-y: 5px;
-                        z-index: 100;
-                        @include animationTransition;
-                    }
-                    &:after{
-                        content: '';
-                        position: absolute;
-                        bottom: 0;
-                        right: 0;
-                        background: url(../img/decorate-sprite.png) center no-repeat;
-                        width: 120px;
-                        height: 120px;
-                        background-size: cover;
-                        background-position-y: -110px;
-                        z-index: 100;
-                        @include animationTransition;
-                    }
-                    &:hover{
-                        @include animationTransition;
-                        height: 100%;
-                        box-shadow: inset -5px -5px 10px rgba($secondarycolor, .2),
-                        inset 5px 5px 10px rgba(0,0,0,.5);
-                        .skill-img{
-                            transform: translateY(8px);
-                            @include animationTransition;
-                            svg{
-                                path{
-                                    @include animationTransition;
-                                    fill: $darkenmaincolor;
-                                    &.cls-1, &.cls-3{
-                                        fill: $secondarycolor;
-                                    }
-                                }
-                                circle{
-                                    fill: $secondarycolor;
-
-                                }
-                            }
-                        }
-                        .skill-text{
-                            transform: translateY(0);
-                            @include animationTransition;
-                        }
-                        &.shown{
-                            @include animationTransition;  
-                            .skill-more{
-                                max-height: 1px;
-                                @include animationTransition(.7s, -.2s);
-                            }                    
-                            .skill-img{
-                                max-height: 1px;
-                                overflow: hidden;
-                                padding: 0;
-                                animation: showSkillImg .7s .55s forwards;
-                            }
-                            .skill-text{
-                                max-height: 1px;
-                                overflow: hidden;
-                                padding: 0;
-                                animation: showSkillImg .7s .55s forwards;
-                            }
-                        }
-                        &:before{
-                            background-position-y: -110px;
-                            @include animationTransition;
-                        }
-                        &:after{
-                            background-position-y: 5px;
-                            @include animationTransition;
-                        }
-                    }
-                    &.active{
-                        &:after{
-                            background: none;
-                        }
-                        &:before{
-                            background: none;
-                        }
-                        @include animationTransition;
-                        .skill-more{
-                            max-height: 900px;
-                            @include animationTransition(.7s, .4s);
-                        }
-                        .skill-img{
-                            animation: hideSkillImg .5s forwards;
-                        }
-                        .skill-text{
-                            animation: hideSkillText .5s forwards;
-                        }
-                    }
-                    &.shown{
-                        @include animationTransition;  
-                        .skill-more{
-                            max-height: 1px;
-                            @include animationTransition(1s, -.4s);
-                        }             
-                        .skill-img{
-                            max-height: 1px;
-                            overflow: hidden;
-                            @include animationTransition;
-                            animation: showSkillImg 1s .8s forwards;
-                            padding: 20px 0;
-                        }
-                        .skill-text{
-                            max-height: 1px;
-                            overflow: hidden;
-                            padding: 0;
-                            animation: showSkillImg 1s .8s forwards;
-                        }
-                    }
+                @include xlarge {
+                  font-size: 17px;
                 }
-                &.active{
-                    &:nth-child(1){
-                        animation: cardAppearence 1s 1s forwards;
-                    }
-                    &:nth-child(2){
-                        animation: cardAppearence 1s 1.2s forwards;
-                    }
-                    &:nth-child(3){
-                        animation: cardAppearence 1s 1.5s forwards;
-                    }
+              }
+              li {
+                flex: 0 0 auto;
+                padding-left: 20px;
+                position: relative;
+                color: $textcolor;
+                flex: 0 0 100%;
+                font-size: 12px;
+                @include medium {
+                  font-size: 18px;
                 }
-                &.hard-skill-card{
-                    .hard-skill-list{
-                        display: flex;
-                        flex-direction: column;
-                        flex-wrap: wrap;
-                        max-height: 550px;
-                        .hard-skill{
-                            padding-top: 15px;
-                            flex: 0 1 100%;
-                            span{
-                                color: $textcolor;
-                                display: block;
-                                margin-bottom: 10px;
-                                font-size: 14px;
-                                @include medium { 
-                                    font-size: 18px;
-                                }
-                                @include large{
-                                    font-size: 14px;
-                                }
-                                @include xlarge{
-                                    font-size: 17px;
-                                }
-                            }
-                            li{
-                                flex: 0 0 auto;
-                                padding-left: 20px;
-                                position: relative;
-                                color: $textcolor;
-                                flex: 0 0 100%;
-                                font-size: 12px;
-                                @include medium {
-                                    font-size: 18px;
-                                }
-                                @include large{
-                                    font-size: 12px;
-                                }
-                                @include xlarge{
-                                    font-size: 17px;
-                                }
-                                &:before{
-                                    content: "\22D7";
-                                    color: $secondarycolor;
-                                    left: 0;
-                                    position: absolute;
-                                    vertical-align: middle;
-                                    font-size: 15px;
-                                    top: 50%;
-                                    transform: translateY(-50%);
-                                }
-                            }
-                            &.technologies{
-                                margin-right: 20px;
-                                flex: 0 1 100%;
-                                order: 1;
-                            }
-                            &.utilites{
-                                flex: 0 1 50%;
-                                order: 3;
-                                li{
-                                    &:before{
-                                        color: #3498db;
-                                    }
-                                }
-                            }
-                            &.programs{
-                                order: 2;
-                                flex: 0 1 50%;
-                                li{
-                                    &:before{
-                                        color: #e67e22;
-                                    }
-                                }
-                            }
-
-                        }
-
-                    }
+                @include large {
+                  font-size: 12px;
                 }
-                &.soft-skill-card{
-                    strong{
-                        font-weight: 400;
-                        color: $secondarycolor;
-                    }
+                @include xlarge {
+                  font-size: 17px;
                 }
-                &.hobbies-card{
-                    strong{
-                        font-weight: 400;
-                        color: $secondarycolor;
-                    }
+                &:before {
+                  content: "\22D7";
+                  color: $secondarycolor;
+                  left: 0;
+                  position: absolute;
+                  vertical-align: middle;
+                  font-size: 15px;
+                  top: 50%;
+                  transform: translateY(-50%);
                 }
+              }
+              &.technologies {
+                margin-right: 20px;
+                flex: 0 1 100%;
+                order: 1;
+              }
+              &.utilites {
+                flex: 0 1 50%;
+                order: 3;
+                li {
+                  &:before {
+                    color: #3498db;
+                  }
+                }
+              }
+              &.programs {
+                order: 2;
+                flex: 0 1 50%;
+                li {
+                  &:before {
+                    color: #e67e22;
+                  }
+                }
+              }
             }
+          }
         }
+        &.soft-skill-card {
+          strong {
+            font-weight: 400;
+            color: $secondarycolor;
+          }
+        }
+        &.hobbies-card {
+          strong {
+            font-weight: 400;
+            color: $secondarycolor;
+          }
+        }
+      }
     }
+  }
 }
 
 // CARD APPEREANCE
 
 @keyframes cardAppearence {
-    from{
-        transform: translateY(20px);
-        opacity: 0;
-    }
-    to{
-        transform: translateY(0px);
-        opacity: 1;
-    }
+  from {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0px);
+    opacity: 1;
+  }
 }
 
 // HIDE ANIMATION
-@keyframes hideSkillImg{
-    from{
-        transform: translateY(8px);
-        opacity: 1;
-        height: 100%;
-    }
-    to{
-        transform: translateY(0px);
-        opacity: 0;
-        height: 0;
-        padding: 0;
-        margin: 0;
-    }
+@keyframes hideSkillImg {
+  from {
+    transform: translateY(8px);
+    opacity: 1;
+    height: 100%;
+  }
+  to {
+    transform: translateY(0px);
+    opacity: 0;
+    height: 0;
+    padding: 0;
+    margin: 0;
+  }
 }
 
-@keyframes hideSkillText{
-    from{
-        transform: translateY(0px);
-        opacity: 1;
-        height: 100%;
-    }
+@keyframes hideSkillText {
+  from {
+    transform: translateY(0px);
+    opacity: 1;
+    height: 100%;
+  }
 
-    to{
-        transform: translateY(-5px);
-        opacity: 0;
-        height: 0;
-        padding: 0;
-        margin: 0;
-    }
+  to {
+    transform: translateY(-5px);
+    opacity: 0;
+    height: 0;
+    padding: 0;
+    margin: 0;
+  }
 }
 // SHOW ANIMATION
 
-@keyframes showSkillImg{
-    from{ 
-        max-height: 1px;
-        overflow: hidden;
-        padding: 0;
-    }
-    to{
-        max-height: 220px;
-        padding: 20px 0;
-        overflow: unset;
-    }
+@keyframes showSkillImg {
+  from {
+    max-height: 1px;
+    overflow: hidden;
+    padding: 0;
+  }
+  to {
+    max-height: 220px;
+    padding: 20px 0;
+    overflow: unset;
+  }
 }
